@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <title>itemDetailPage</title>
+    
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0.RC/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0.RC/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0.RC/js/ui.js"></script>
+
+    <link href="/css/default.css" rel="stylesheet" />
+    <link href="/pages/itemDetail/itemDetail.css" rel="stylesheet" />
+    <script src="/js/data.js"></script>
+    <script src="/pages/itemDetail/itemDetail.js"></script>
+</head>
+<body>
+
+    <!--评论html模板 -->
+    <div class="item-comment" data-win-control="WinJS.Binding.Template">
+        <a class="commentor-avatar" href="#" data-win-bind="href:commentorLink;alt:commentorAvatarLink">
+            <img src="#" data-win-bind="src:commentorAvatar;alt:title" />
+        </a>
+        <a class="commentor-name" href="#" data-win-bind="href:commentorLink;alt:commentorName;textContent:commentorName"></a>
+        <span class="comment-time" data-win-bind="textContent:commentCreatedAt"></span>
+        <div class="comment-content" data-win-bind="textContent:comment"></div>
+    </div>
+
+    <!-- The content that will be loaded and displayed. -->
+    <div class="itemdetailpage fragment">
+        <header aria-label="Header content" role="banner">
+            <button class="win-backbutton" aria-label="Back" disabled></button>
+            <h1 class="titlearea win-type-ellipsis">
+                <span class="pagetitle"></span>
+            </h1>
+        </header>
+        <div class="content" aria-label="Main content" role="main">
+            <article>
+                <div>
+                    <header>
+                        <h2 class="item-title"></h2>
+                        <h4 class="item-subtitle"></h4>
+                    </header>
+                    <img class="item-image" src="#" />
+                    <div class="item-content"></div>
+                </div>
+            </article>
+            <div id="commentlistView" class="item-comments" aria-label="List of this item's comments" data-win-control="WinJS.UI.ListView" data-win-options="{selectionMode: 'none'}"></div>
+        </div>        
+    </div>
+</body>
+</html>

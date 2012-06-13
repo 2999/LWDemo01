@@ -1,0 +1,19 @@
+﻿/*.login p {
+    margin-left: 120px;
+}*/
+
+.login section[role=main] {
+    margin-left: 120px;
+}
+
+@media screen and (-ms-view-state: snapped) {
+    .login section[role=main] {
+        margin-left: 20px;
+    }
+}
+
+@media screen and (-ms-view-state: portrait) {
+    .login section[role=main] {
+        margin-left: 100px;
+    }
+}

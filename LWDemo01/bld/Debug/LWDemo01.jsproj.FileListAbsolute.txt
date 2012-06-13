@@ -1,0 +1,9 @@
+C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\bin\Debug\resources.pri
+C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\bin\Debug\AppxManifest.xml
+C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\bin\Debug\LWDemo01.build.appxrecipe
+C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\bld\Debug\priconfig.xml
+C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\bld\Debug\layout.resfiles
+C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\bld\Debug\resources.resfiles
+C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\bld\Debug\pri.resfiles
+C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\bld\Debug\LanguageQualifiers.txt
+C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\bld\Debug\ProjectArchitectures.txt
