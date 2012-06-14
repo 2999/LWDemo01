@@ -1,10 +1,15 @@
-﻿/*这是原来的*/
+﻿.itemdetailpage {
+    display:block;
+    overflow-x:auto;
+}
+
+/*这是原来的*/
 .itemdetailpage .content {
-    display: block;
+    display:flexbox;
     height: 100%;
     overflow-x: auto;
     position: relative;
-    width:100%;
+    
     z-index: 0;
 }
 

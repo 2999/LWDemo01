@@ -17,10 +17,10 @@
         stuff(element, options);
 
         //从页面上获得控件实体
-        var listView = element.querySelector(".item-comments").winControl;
+        //var listView = element.querySelector(".item-comments").winControl;
 
         //取50条评论，并放入comments数组中
-        getComment(item, 50);
+        //getComment(item, 50);
 
         //to do rebuild  .5秒之后再展示数据，防止取不到评论
         setTimeout(function () {
@@ -36,14 +36,14 @@
             } 
             //element.querySelector(".item-comment-title").textContent = "评论(" + comments.length + ")";
 
-            var groupedComments = comments.createGrouped(function (c) { return c.item.id; }, function (c) { return c.item; });
-            var itemDataSourse = groupedComments.groups.dataSource;
+           // var groupedComments = comments.createGrouped(function (c) { return c.item.id; }, function (c) { return c.item; });
+           // var itemDataSourse = groupedComments.groups.dataSource;
 
             //为组件绑定数据和事件
-            ui.setOptions(listView, {
-                itemDataSource: groupedComments.dataSource,
-                itemTemplate: element.querySelector(".item-comment")
-            });
+            //ui.setOptions(listView, {
+            //    itemDataSource: groupedComments.dataSource,
+            //    itemTemplate: element.querySelector(".item-comment")
+            //});
 
             //listView.layout = new ui.GridLayout({ groupHeaderPosition: "left" });
 

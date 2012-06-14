@@ -55,6 +55,17 @@
                     } 
                 }"></div>
         </section>
+        <section class="othertools">
+            <div class="othertoolslist" aria-label="List of groups" data-win-control="WinJS.UI.ListView" 
+                data-win-options="{ 
+                    selectionMode: 'none'
+                }"></div>
+        </section>
+
+        <div id="othertooltemplate" class="othertooltemplate" data-win-control="WinJS.Binding.Template">                      
+            <div class="othertool-title" data-win-bind="textContent: otherToolTitle"></div>
+        </div>
+
     </div>
 </body>
 </html>

@@ -61,6 +61,9 @@
     <Content Include="js\default.js" />
     <Content Include="js\jquery-1.7.2.min.js" />
     <Content Include="js\navigator.js" />
+    <Content Include="pages\friend\friends.css" />
+    <Content Include="pages\friend\friends.html" />
+    <Content Include="pages\friend\friends.js" />
     <Content Include="pages\itemDetail\itemDetail.css" />
     <Content Include="pages\itemDetail\itemDetail.html" />
     <Content Include="pages\itemDetail\itemDetail.js" />
@@ -74,6 +77,9 @@
     <Content Include="pages\login\login.css" />
     <Content Include="pages\login\login.html" />
     <Content Include="pages\login\login.js" />
+    <Content Include="pages\profile\profile.css" />
+    <Content Include="pages\profile\profile.html" />
+    <Content Include="pages\profile\profile.js" />
     <None Include="LWDemo01_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

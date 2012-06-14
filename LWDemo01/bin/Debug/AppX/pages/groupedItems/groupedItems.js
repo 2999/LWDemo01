@@ -48,6 +48,21 @@
             this.initializeLayout(listView, appView.value);
             //listView.forceLayout();
             listView.element.focus();
+
+            this.otherTools(element, options);
+        },
+        otherTools: function (element, options) {
+            var otherToolListView = element.querySelector(".othertoolslist").winControl;
+            otherToolListView.itemTemplate = element.querySelector(".othertooltemplate");
+            otherToolListView.itemDataSource = Data.otherToolsList.dataSource;
+            otherToolListView.oniteminvoked = function () {
+                //var item = Data.items.getAt(args.detail.itemIndex);
+                //if (item.group.key === "laiwang1") {
+                nav.navigate("/pages/friend/friends.html", { item: Data.friendLists });
+            }
+            otherToolListView = new ui.GridLayout({ groupHeaderPosition: "top" });
+            element.querySelector(".othertoolslist").winControl.forceLayout();
+            //otherToolListView.forceLayout();
         },
 
         // 此功能更新页面布局以响应 viewState 更改。

@@ -32,6 +32,9 @@
     ];
     //四种item的规格，其实它们都是在css中定义的样式：小方，中长 ，中竖 ，大方 
     var sizes = ["smallItem", "midWidthItem", "midHeightItem", "largeItem"];
+
+    
+
     // 这些示例项的每个项都应具有对特定组的引用。
    /* //var sampleItems = [
         { group: sampleGroups[0], title: "Item Title: 1", subtitle: "Item Subtitle: 1", description: itemDescription, content: itemContent, backgroundImage: lightGray },
@@ -188,11 +191,57 @@
         });
     }
 
+    //根据id获得某人的profile  posts
+    //没有id也行
+    function getSomeBodyStream() {
+        var id = id || '';
+        var postData = {
+            'cursor': 0,
+            'size': __LENGTH__,
+            'access_token': localStorage['access_token']
+        };
+        $.ajax({
+            global: false,
+            url: __API_DOMAIN__ + '/feed/post/user/list',  //获取laiwang主墙
+            type: 'GET',
+            data: postData,
+            _success: function (data) {
+
+                data = data.values;
+
+                //如果取得的值为空
+                if (data.length === 0) {
+                    return;
+                }
+                for (var index in data) {
+                    data[index].content = data[index].content.replace(/\n/gi, '<br/>');
+                }
+                data.forEach(function (item) {//to do rebuild
+
+                    // Each of these sample items should have a reference to a particular group.
+                    item.group = Groups[1];
+
+                    //item.key = item.id;
+                    item.itemPublisherAvatar = item.publisher.avatar;
+                    item.title = item.publisher.name;
+                    item.subtitle = transformDate(item.createdAt);
+                    item.description = item.content.substr(0, 100);
+                    item.content = item.content;
+                    item.backgroundImage = (!!(item.attachments[0]) && item.attachments[0].picture) ? item.attachments[0].picture : lightGray;
+                    //如果用户没有发图片，就要用内容代替图片
+                    item.imageReplacer = (!item.attachments[0] || !item.attachments[0].picture) ? item.description : "";
+                    item.type = getOneSize();
+                    list.push(item);
+                });
+            }
+        });
+    }
+
     //获取好友列表
     function getFriends() {
         var postData = {
             'type': 'FOLLOWING',
-            'size': __LENGTH__,
+            'size': 100,
             'access_token': localStorage['access_token']
         };
         $.ajax({
@@ -208,18 +257,11 @@
                 }
                 data.forEach(function (item) {
                     item.group = Groups[2];
-
-                    //item.key = item.id;
-                    item.itemPublisherAvatar = item.avatar;
                     item.title = item.name;
                     item.subtitle = item.connectionType;
+                    item.backgroundImage = item.avatar;
                     item.description = "";
-                    item.content = "";
-                    item.backgroundImage = mediumGray;
-                    //如果用户没有发图片，就要用内容代替图片
-                    item.imageReplacer = "";
-                    item.type = getOneSize();
-                    list.push(item);
+                    friendLists.push(item);
                 });
             }
         })
@@ -276,7 +318,10 @@
     }
 
     getStream();
+    getSomeBodyStream();
     getFriends();
+
+    var friendLists = new WinJS.Binding.List();
 
     // 此功能返回仅包含属于提供的组的项的 WinJS.Binding.List。
     function getItemsFromGroup(group) {
@@ -289,7 +334,9 @@
         function groupDataSelector(item) { return item.group; }
     );
 
-    
+    var otherToolsList = new WinJS.Binding.List([{ key: "friends", otherToolTitle: "Friends" },
+        { key: "events", otherToolTitle: "Events"},
+        { key: "findfriend", otherToolTitle: "FindFriend" }]);
 
     // TODO: 将数据替换为实际数据。
     // 当异步源中的数据可用时，可以添加此数据。
@@ -306,7 +353,9 @@
         getItemReference: getItemReference,
         resolveGroupReference: resolveGroupReference,
         resolveItemReference: resolveItemReference,
-        transformDate: transformDate
+        transformDate: transformDate,
+        otherToolsList: otherToolsList,
+        friendLists: friendLists
     });
 })();
 
