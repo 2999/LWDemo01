@@ -11,22 +11,11 @@
     <script src="//Microsoft.WinJS.1.0.RC/js/ui.js"></script>
 
     <link href="/css/default.css" rel="stylesheet" />
-    <link href="/pages/itemDetail/itemDetail.css" rel="stylesheet" />
     <script src="/js/data.js"></script>
+    <link href="/pages/itemDetail/itemDetail.css" rel="stylesheet" />    
     <script src="/pages/itemDetail/itemDetail.js"></script>
 </head>
 <body>
-
-    <!--评论html模板
-    <div class="item-comment" data-win-control="WinJS.Binding.Template">
-        <a class="commentor-avatar" href="#" data-win-bind="href:commentorLink;alt:commentorAvatarLink">
-            <img src="#" data-win-bind="src:commentorAvatar;alt:title" />
-        </a>
-        <a class="commentor-name" href="#" data-win-bind="href:commentorLink;alt:commentorName;textContent:commentorName"></a>
-        <span class="comment-time" data-win-bind="textContent:commentCreatedAt"></span>
-        <div class="comment-content" data-win-bind="textContent:comment"></div>
-    </div> -->
-
     <!-- The content that will be loaded and displayed. -->
     <div class="itemdetailpage fragment">
         <header aria-label="Header content" role="banner">
@@ -46,8 +35,21 @@
                     <div class="item-content"></div>
                 </div>
             </article>
-            <!--<div id="commentlistView" class="item-comments" aria-label="List of this item's comments" data-win-control="WinJS.UI.ListView" data-win-options="{selectionMode: 'none'}"></div>-->
-        </div>        
+            <div class="commentLists">
+                <div id="comments" aria-label="List of groups" data-win-control="WinJS.UI.ListView" data-win-options="{selectionMode: 'none'}"></div>
+            </div>
+        </div>
+
+        <!--评论模板-->
+        <div id="commentTemplate" class="commentTemplate" data-win-control="WinJS.Binding.Template">
+            <div class="comment">                
+                <img class="commentor-avatar" src="#" data-win-bind="src:commentorAvatar;" />
+                <h4 class="commentor-name" data-win-bind="textContent: commentorName"></h4>
+                <h4 class="commentor-time" data-win-bind="textContent: commentCreatedAt"></h4>
+                <h6 class="comment-content" data-win-bind="textContent: comment"></h6>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>

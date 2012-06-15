@@ -4,8 +4,7 @@
     "use strict";
 
     WinJS.UI.Pages.define("/pages/profile/profile.html", {
-        // 每当用户导航至此页面时都要调用此功能。它
-        // 使用应用程序的数据填充页面元素。
+        // 每当用户导航至此页面时都要调用此功能。它使用应用程序的数据填充页面元素。
         ready: function (element, options) {
             // TODO: 在此处初始化页面。
             var item = options && options.item ? Data.resolveItemReference(options.item) : Data.items.getAt(0);
@@ -20,7 +19,7 @@
             element.querySelector("article .item-image").alt = item.subtitle;
             element.querySelector("article .item-content").innerHTML = item.content;
             element.querySelector(".content").focus();
-
+            
         },
 
         updateLayout: function (element, viewState, lastViewState) {
