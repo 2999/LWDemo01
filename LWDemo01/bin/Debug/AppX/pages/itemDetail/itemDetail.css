@@ -20,6 +20,7 @@
         column-gap: 80px;
         column-width: 480px;
         /*height: calc(100% - 50px);*/
+        height:620px;             /*to do rebuild*/
         margin-left: 120px;
         margin-top: 5px;
         width: auto;
@@ -93,8 +94,10 @@
 
 .commentLists{
     /*height:calc(100% - 50px);*/ 
+    height:620px;       /*to do rebuild*/
     -ms-grid-column:2; 
     margin-left:100px;
+    min-width:480px;
 }
 
 .commentLists #comments {
@@ -105,7 +108,7 @@
 .comment {
     display:-ms-grid;
     -ms-grid-rows:30px auto;
-    -ms-grid-columns:60px 50px auto;
+    -ms-grid-columns:60px 100px auto;
     width:400px;
     min-height:150px;
 }
@@ -118,18 +121,19 @@
 
     .comment .commentor-name {
         -ms-grid-column:2;
-        font-size:14pt;
+        font-size:13pt;
     }
     
      .comment .commentor-time {
         -ms-grid-column:3;
-        font-size:14pt;
+        font-size:13pt;
     }
 
     .comment .comment-content {
         -ms-grid-column:2;
         -ms-grid-row:2;
         -ms-grid-column-span:2;
+         font-size:14pt;
     }
 
 

@@ -32,7 +32,7 @@
         itemInvoked: function (args) {
             args.detail.itemPromise.done(function itemInvoked(item) {
                 // TODO: 导航到已调用的项。
-                //nav.navigate("/pages/itemDetail/itemDetail.html", {item: item.data});
+                nav.navigate("/pages/itemDetail/itemDetail.html", {item: item.data});
             });
         },
 

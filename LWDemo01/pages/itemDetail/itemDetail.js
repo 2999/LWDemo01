@@ -9,9 +9,9 @@
     //填充item的内容
     var stuff = function (element, options) {
         var item = options && options.item ? Data.resolveItemReference(options.item) : Data.items.getAt(0);
-        element.querySelector(".titlearea .pagetitle").textContent = "Post Detail";//item.group.title;
+        element.querySelector(".titlearea .pagetitle").textContent = item.subtitle;//item.group.title;
         element.querySelector("article .item-title").textContent = item.title;
-        element.querySelector("article .item-subtitle").textContent = item.subtitle;
+        //element.querySelector("article .item-subtitle").textContent = item.subtitle;
         
         if (!!(item.attachments[0]) && item.attachments[0].picture) {
             element.querySelector("article .item-image").src = item.backgroundImage;

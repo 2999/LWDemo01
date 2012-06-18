@@ -77,8 +77,7 @@
         { group: sampleGroups[5], title: "Item Title: 8", subtitle: "Item Subtitle: 8", description: itemDescription, content: itemContent, backgroundImage: lightGray }
     ];*/
 
-    // Get a reference for an item, using the group key and item title as a
-    // unique reference to the item that can be easily serialized.
+    // Get a reference for an item, using the group key and item title as a unique reference to the item that can be easily serialized.
     function getItemReference(item) {
         return [item.group.key, item.title];
     }
@@ -177,8 +176,10 @@
 
                     //item.key = item.id;
                     item.itemPublisherAvatar = item.publisher.avatar;
-                    item.title = item.publisher.name;
-                    item.subtitle = transformDate(item.createdAt);
+                    item.pname = item.publisher.name;
+                    item.ptime = transformDate(item.createdAt);
+                    item.title = transformDate(item.createdAt);
+                    item.subtitle = item.publisher.name;
                     item.description = item.content.substr(0, 100);
                     item.content = item.content;
                     item.backgroundImage = (!!(item.attachments[0]) && item.attachments[0].picture) ? item.attachments[0].picture : lightGray;
@@ -223,8 +224,10 @@
 
                     //item.key = item.id;
                     item.itemPublisherAvatar = item.publisher.avatar;
-                    item.title = item.publisher.name;
-                    item.subtitle = transformDate(item.createdAt);
+                    item.pname = item.publisher.name;
+                    item.ptime = transformDate(item.createdAt);
+                    item.title = transformDate(item.createdAt);
+                    item.subtitle = "我";
                     item.description = item.content.substr(0, 100);
                     item.content = item.content;
                     item.backgroundImage = (!!(item.attachments[0]) && item.attachments[0].picture) ? item.attachments[0].picture : lightGray;
@@ -257,7 +260,7 @@
                 }
                 data.forEach(function (item) {
                     item.group = Groups[2];
-                    item.title = item.name;
+                    item.title = item.id;
                     item.subtitle = item.connectionType;
                     item.backgroundImage = item.avatar;
                     item.description = "";
