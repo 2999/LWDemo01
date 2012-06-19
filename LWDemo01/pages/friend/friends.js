@@ -25,8 +25,34 @@
             this.filters.push({ results: null, text: "All", predicate: function (item) { return true; } });
 
             // TODO: 替换或删除示例筛选器。
-            this.filters.push({ results: null, text: "Group 1", predicate: function (item) { return item.group.key === "group1"; } });
-            this.filters.push({ results: null, text: "Group 2+", predicate: function (item) { return item.group.key !== "group1"; } });
+            //this.filters.push({ results: null, text: "Group 1", predicate: function (item) { return item.group.key === "group1"; } });
+            //this.filters.push({ results: null, text: "Group 2+", predicate: function (item) { return item.group.key !== "group1"; } });
+            var ifilters = this.filters;
+
+            //var groupedFriend = Data.friendLists.createGrouped(
+            //    function (item) { return item.pinyin.toUpperCase().charAt(0) },
+            //    function (item) { return { nameKey: item.pinyin.toUpperCase().charAt(0) }; }
+            //    );
+
+            Data.friendLists.forEach (function(friend) {
+                var title = friend.pinyin.toUpperCase().charAt(0);
+
+                for (var i = 0; i<ifilters.length;i++) {
+                    if (ifilters[i].text === title) {
+                        ifilters[i].results.push(friend);
+                        return;
+                    }
+                }
+
+                var obj = {};
+                obj.results = new WinJS.Binding.List();
+                obj.results.push(friend);
+                obj.text = title;
+                obj.predicate = function (item) { return item.pinyin.toUpperCase().charAt(0) === title; };
+                ifilters.push(obj);
+
+            })
+
         },
 
         itemInvoked: function (args) {

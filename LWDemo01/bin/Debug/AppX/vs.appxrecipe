@@ -5,7 +5,7 @@
     <WindowsUser>Jiangzhizi</WindowsUser>
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
-    <RegisteredManifestChecksum>52F6DF25D54B71282ED9A2C9F6CC9608A7A8154A8E8956AE78AF1BA2B8E2B9A9</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>E94D07FCC744599EB4806D913FE782EA7FD4202CD99903B45F4BC8E760F77312</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>a8efb040-e782-42ec-825a-b1e2dd04dcfe_1.0.0.0_neutral__6c99qte6jg5zw</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>a8efb040-e782-42ec-825a-b1e2dd04dcfe_6c99qte6jg5zw!App</RegisteredUserModeAppID>
     <RegisteredPackageID>a8efb040-e782-42ec-825a-b1e2dd04dcfe</RegisteredPackageID>
@@ -16,7 +16,7 @@
     <AppXManifest Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-06-14T13:44:22.967</Modified>
+      <Modified>2012-06-19T09:44:34.186</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -26,7 +26,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\friend\friends.css">
       <PackagePath>pages\friend\friends.css</PackagePath>
-      <Modified>2012-06-14T14:17:10.465</Modified>
+      <Modified>2012-06-19T14:15:27.710</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\itemDetail\itemDetail.css">
       <PackagePath>pages\itemDetail\itemDetail.css</PackagePath>
@@ -94,7 +94,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\friend\friends.js">
       <PackagePath>pages\friend\friends.js</PackagePath>
-      <Modified>2012-06-17T17:47:29.730</Modified>
+      <Modified>2012-06-19T14:10:23.414</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\itemDetail\itemDetail.js">
       <PackagePath>pages\itemDetail\itemDetail.js</PackagePath>
