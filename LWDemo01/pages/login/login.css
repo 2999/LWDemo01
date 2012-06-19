@@ -3,8 +3,73 @@
 }*/
 
 .login section[role=main] {
-    margin-left: 120px;
+    /*margin-left: 120px;*/
+    display:-ms-grid;
+    -ms-grid-rows:1fr 2fr 2fr;
+    -ms-grid-columns:1fr 1fr 1fr;
 }
+
+    .login section[role=main] #logo {
+        -ms-grid-column:2;
+        -ms-grid-column-align:center;
+        -ms-grid-row-align:center;
+    }
+    
+     .login section[role=main] .log-info {
+        -ms-grid-column:2;
+        -ms-grid-row:2;
+        -ms-grid-column-align:center;
+        -ms-grid-row-align:center;
+        display:-ms-grid;
+        -ms-grid-rows:1fr 1fr;
+        -ms-grid-columns:80px 1fr;
+        width:100%;
+        height:50%;
+    }
+     
+        .login section[role=main] .inputEml {            
+            -ms-grid-column-align:center;
+            -ms-grid-row-align:center; 
+            font-size:16pt;
+        }
+     
+        .login section[role=main] #inputEmail {
+            -ms-grid-column:2;
+            -ms-grid-row:1;
+            -ms-grid-column-align:center;
+            -ms-grid-row-align:center;
+            width:300px;
+            padding:2px;
+            margin:5px;
+        }          
+        
+        .login section[role=main] .inputPwd {
+            -ms-grid-column:1;
+            -ms-grid-row:2;
+            -ms-grid-column-align:center;
+            -ms-grid-row-align:center;
+            font-size:16pt;
+        }
+        
+        .login section[role=main] #inputPassword {
+            -ms-grid-column:2;
+            -ms-grid-row:2;
+            -ms-grid-column-align:center;
+            -ms-grid-row-align:center;
+            width:300px;
+            padding:2px;
+            margin:5px;
+        }     
+
+    .login section[role=main] #btnLogin {
+        -ms-grid-column:2;
+        -ms-grid-row:3;
+        -ms-grid-column-align:end;
+        -ms-grid-row-align:start;
+        margin-right:40px;
+        height:30px;
+        width:80px;
+    }
 
 @media screen and (-ms-view-state: snapped) {
     .login section[role=main] {

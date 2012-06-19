@@ -55,7 +55,7 @@
 
         .friends section[role=main] .resultslist .item {
             /* Define a grid with columns for an icon, spacing and item details */
-            -ms-grid-columns: 60px 10px 1fr;
+            -ms-grid-columns: 55px 10px 1fr;
             -ms-grid-rows: 1fr;
             display: -ms-grid;
             height: 64px;

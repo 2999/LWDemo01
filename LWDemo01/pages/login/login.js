@@ -96,7 +96,7 @@
         authentication.init();
 
         var toLogin = function () {
-            var name = document.querySelector("#inputName").value;//to do rebuild
+            var name = document.querySelector("#inputEmail").value;//to do rebuild
             var password = document.querySelector("#inputPassword").value;//to do rebuild
             authentication.login(name, password, login2groupedItemspage);//to do rebuild
         }
