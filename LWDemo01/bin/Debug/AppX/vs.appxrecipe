@@ -16,7 +16,7 @@
     <AppXManifest Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-06-21T16:18:31.506</Modified>
+      <Modified>2012-06-21T16:49:13.718</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -42,7 +42,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\groupedItems\groupedItems.css">
       <PackagePath>pages\groupedItems\groupedItems.css</PackagePath>
-      <Modified>2012-06-15T09:40:00.892</Modified>
+      <Modified>2012-06-21T16:42:27.306</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\login\login.css">
       <PackagePath>pages\login\login.css</PackagePath>
@@ -50,15 +50,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\profile\profile.css">
       <PackagePath>pages\profile\profile.css</PackagePath>
-      <Modified>2012-06-21T11:21:29.317</Modified>
+      <Modified>2012-06-21T18:22:25.553</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\images\background01.jpg">
-      <PackagePath>images\background01.jpg</PackagePath>
-      <Modified>2012-06-08T13:47:19.715</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\images\item_bac01.jpg">
-      <PackagePath>images\item_bac01.jpg</PackagePath>
-      <Modified>2012-06-08T13:47:19.717</Modified>
+    <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\images\avatar180x180.png">
+      <PackagePath>images\avatar180x180.png</PackagePath>
+      <Modified>2012-06-21T16:45:14.363</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\images\eventicon.png">
       <PackagePath>images\eventicon.png</PackagePath>
@@ -83,6 +79,14 @@
       <PackagePath>images\storelogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2012-06-19T15:47:59.818</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\images\background01.jpg">
+      <PackagePath>images\background01.jpg</PackagePath>
+      <Modified>2012-06-08T13:47:19.715</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\images\item_bac01.jpg">
+      <PackagePath>images\item_bac01.jpg</PackagePath>
+      <Modified>2012-06-08T13:47:19.717</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\js\data.js">
       <PackagePath>js\data.js</PackagePath>
@@ -126,7 +130,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\profile\profile.js">
       <PackagePath>pages\profile\profile.js</PackagePath>
-      <Modified>2012-06-21T10:56:25.572</Modified>
+      <Modified>2012-06-21T18:24:26.927</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\events\events.html">
       <PackagePath>pages\events\events.html</PackagePath>
@@ -158,11 +162,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\profile\profile.html">
       <PackagePath>pages\profile\profile.html</PackagePath>
-      <Modified>2012-06-21T10:51:55.064</Modified>
+      <Modified>2012-06-21T17:05:57.024</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2012-06-21T16:18:31.277</Modified>
+      <Modified>2012-06-21T16:49:13.266</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

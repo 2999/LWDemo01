@@ -166,7 +166,7 @@
     height: 240px;
     
     overflow: hidden;
-    background-color: pink;
+    background-color: LightGreen;
     display: -ms-grid;
     -ms-grid-columns: 1fr;
     -ms-grid-rows: 1fr 50px;
@@ -179,7 +179,7 @@
     height: 150px;
     
     overflow: hidden;
-    background-color: LightGreen;
+    background-color: pink;
     display: -ms-grid;
     -ms-grid-columns: 1fr;
     -ms-grid-rows: 1fr 50px;

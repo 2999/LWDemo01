@@ -32,11 +32,15 @@
 
         .profilepage .itemslist .win-groupheader .group-image {
             -ms-grid-row: 2;
-            background-color: rgba(147, 149, 152, 1);
-            height: 238px;
+            background-color: rgba(147, 149, 152, 1);            
             margin: 0;
-            margin-bottom: 20px;
-            width: 480px;
+            margin-bottom: 20px; 
+            
+            min-height:180px;
+            max-height: 300px;
+            height:auto;            
+            max-width: 480px;
+            width:auto;
         }
 
         .profilepage .itemslist .win-groupheader .group-description {

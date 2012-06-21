@@ -8,9 +8,10 @@
     var API_DOMAIN = Data.API_DOMAIN;
     var profileInfo;
     var profilePosts;
+    var lightGray = "../images/item_bac01.jpg";
 
     var Groups = [
-        { key: "profile", title: "profile", subtitle: "profile subtitle title", backgroundImage: darkGray, description: "this is the profile brief wall." }
+        { key: "profile", title: "profile", subtitle: "profile subtitle title", backgroundImage: "../../images/avatar180x180.png", description: "this is the profile brief wall." }
     ];
 
     ui.Pages.define("/pages/profile/profile.html", {
@@ -20,7 +21,10 @@
         // This function updates the ListView with new layouts
         initializeLayout: initializeLayout,
 
-        itemInvoked: itemInvoked ,
+        itemInvoked: function (args) {
+            var item = this.items.getAt(args.detail.itemIndex);
+            nav.navigate("/pages/itemDetail/itemDetail.html", { item: Data.getItemReference(item) });
+        },
 
         // 每当用户导航至此页面时都要调用此功能。它使用应用程序的数据填充页面元素。
         ready: function (element, options) {
@@ -29,37 +33,38 @@
             getProfile(pid);
             getSomeBodyStream(pid);
 
+            var _this = this;
+
             setTimeout(function () {
                 var listView = element.querySelector(".itemslist").winControl;
                 //var group = (options && options.groupKey) ? Data.resolveGroupReference(options.groupKey) : Data.groups.getAt(0);
                 //this.items = Data.getItemsFromGroup(group);
                 var pageList = profilePosts.createGrouped(
-                    function groupKeySelector(item) { return group.key; },
-                    function groupDataSelector(item) { return group; }
+                    function groupKeySelector(item) { return item.group.key; },
+                    function groupDataSelector(item) { return item.group; }
                 );
 
-                element.querySelector("header[role=banner] .pagetitle").textContent = profileInfo[0].profileName;
+                element.querySelector("header[role=banner] .pagetitle").textContent = profileInfo[0] && profileInfo[0].profileName;
 
                 listView.itemDataSource = pageList.dataSource;
                 listView.itemTemplate = element.querySelector(".itemtemplate");
                 listView.groupDataSource = pageList.groups.dataSource;
                 listView.groupHeaderTemplate = element.querySelector(".headerTemplate");
-                listView.oniteminvoked = this.itemInvoked.bind(this);
+                listView.oniteminvoked = _this.itemInvoked.bind(_this);
 
-                this.initializeLayout(listView, Windows.UI.ViewManagement.ApplicationView.value);
+                initializeLayout(listView, Windows.UI.ViewManagement.ApplicationView.value);
                 listView.element.focus();
             }, 500);
         },
 
-        unload: unload ,
+        unload: function () {
+            this.items && this.items.dispose();
+        },
 
         // 此功能更新页面布局以响应 viewState 更改。
         updateLayout: updateLayout 
     });
-
-    function unload() {
-        this.items.dispose();
-    }
+        
 
     function initializeLayout(listView, viewState) {
          /// <param name="listView" value="WinJS.UI.ListView.prototype" />
@@ -71,10 +76,7 @@
         }
     }
 
-    function itemInvoked(args) {
-        var item = this.items.getAt(args.detail.itemIndex);
-        nav.navigate("/pages/itemDetail/itemDetail.html", { item: Data.getItemReference(item) });
-    }
+    
 
     function updateLayout(element, viewState, lastViewState) {
         /// <param name="element" domElement="true" />
@@ -90,7 +92,7 @@
                 }
                 listView.addEventListener("contentanimating", handler, false);
                 var firstVisible = listView.indexOfFirstVisible;
-                this.initializeLayout(listView, viewState);
+                initializeLayout(listView, viewState);
                 listView.indexOfFirstVisible = firstVisible;
             }
         }
@@ -109,9 +111,9 @@
             },
             _success: function (_data) {
                 var obj = {};
-                obj.profileName = _data.name;
-                obj.profileAvatar = _data.avatarBig;
-                obj.profileDescription = _data.brief;
+                obj.profileName = Groups[0].profileName = _data.name;
+                obj.profileAvatar = Groups[0].profileAvatar = _data.avatarBig;
+                obj.profileDescription = Groups[0].profileDescription = _data.brief;
                 profileInfo.push(obj);
             }
         });
@@ -145,18 +147,14 @@
                     // Each of these sample items should have a reference to a particular group.
                     item.group = Groups[0];
                     item.group.title = item.publisher.name;
-
-                    //item.key = item.id;
-                    //item.itemPublisherAvatar = item.publisher.avatar;
-                    //item.pname = item.publisher.name;
-                    //item.ptime = transformDate(item.createdAt);
-                    item.title = transformDate(item.createdAt);
+                    
+                    item.title = Data.transformDate(item.createdAt);
                     item.subtitle = "";
                     item.description = item.content.substr(0, 100);
                     item.content = item.content;
                     item.backgroundImage = (!!(item.attachments[0]) && item.attachments[0].picture) ? item.attachments[0].picture : lightGray;
                     //如果用户没有发图片，就要用内容代替图片
-                    item.imageReplacer = (!item.attachments[0] || !item.attachments[0].picture) ? item.description : "";
+                    //item.imageReplacer = (!item.attachments[0] || !item.attachments[0].picture) ? item.description : "";
                     //item.type = 'smallItem';
                     profilePosts.push(item);
                 });
