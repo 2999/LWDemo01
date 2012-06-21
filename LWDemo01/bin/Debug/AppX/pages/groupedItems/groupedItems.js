@@ -55,14 +55,19 @@
             var otherToolListView = element.querySelector(".othertoolslist").winControl;
             otherToolListView.itemTemplate = element.querySelector(".othertooltemplate");
             otherToolListView.itemDataSource = Data.otherToolsList.dataSource;
-            otherToolListView.oniteminvoked = function () {
-                //var item = Data.items.getAt(args.detail.itemIndex);
-                //if (item.group.key === "laiwang1") {
-                nav.navigate("/pages/friend/friends.html", { item: Data.friendLists });
+            otherToolListView.oniteminvoked = function (args) {
+                var item = Data.otherToolsList.getAt(args.detail.itemIndex);
+                if (item.key === "friends") {
+                    nav.navigate("/pages/friend/friends.html", { item: Data.friendLists });
+                } else if (item.key === "events") {
+                    nav.navigate("/pages/events/events.html", { item: Data.eventLists });
+                } else {
+
+                }
+                otherToolListView = new ui.GridLayout({ groupHeaderPosition: "top" });
+                element.querySelector(".othertoolslist").winControl.forceLayout();
+                //otherToolListView.forceLayout();
             }
-            otherToolListView = new ui.GridLayout({ groupHeaderPosition: "top" });
-            element.querySelector(".othertoolslist").winControl.forceLayout();
-            //otherToolListView.forceLayout();
         },
 
         // 此功能更新页面布局以响应 viewState 更改。

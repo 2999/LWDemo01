@@ -1,146 +1,116 @@
-﻿.profile p {
+﻿/* This selector is used to prevent ui-dark/light.css from overwriting changes to .win-surface. */
+.profilepage .itemslist .win-horizontal.win-viewport .win-surface {
     margin-left: 120px;
+    margin-bottom: 20px;
 }
 
-.profile {
-    display:block;
-    overflow-x:auto;
-}
-
-.profile .content {
-    display:flexbox;
+.profilepage .itemslist {
     height: 100%;
-    overflow-x: auto;
-    position: relative;
-    
-    z-index: 0;
-}
-
-    .profile .content article {
-        column-fill: auto;
-        column-gap: 80px;
-        column-width: 480px;
-        height: calc(100% - 50px);
-        margin-left: 120px;
-        margin-top: 5px;
-        width: auto;
-    }
-
-        .profile .content article header .item-title {
-            margin-bottom: 20px;
-            margin-top: 0;
-        }
-
-        .profile .content article header .item-subtitle {
-            margin-bottom: 20px;
-            margin-top: 0;
-        }
-
-        .profile .content article .item-image {
-            min-height:100px;
-            height: auto;
-            margin-bottom: 3px;
-            width: auto;
-            max-width:480px;
-        }
-        
-         .profile .content article .item-content {
-            font-size:14pt;
-        }
-
-        .profile .content article .item-content p {
-            margin-bottom: 20px;
-            margin-right: 20px;
-            vertical-align: baseline;
-        }
-
-/*这是有关评论模板的*/
-
-.profile .item-comments {
-    display: block;
-    height: 100%;
-    overflow-x: auto;
     position: relative;
     width: 100%;
     z-index: 0;
-    margin-left:20px;
 }
 
- 
-    .profile .item-comments .win-item {
-        display:-ms-grid;
-        -ms-grid-rows: 30px 1fr;
-        -ms-grid-columns: 60px 1fr 3fr;
-        margin-bottom: 10px;
-        min-height: 110px;
-        height: auto;
-        width: 472px;
-        font-size: 14pt;
-    }
-
-    .profile .item-comments  .win-item .commentor-avatar {
-        width: 50px;
-        height: 50px; 
-        -ms-grid-row-align: start;
-        -ms-grid-row-span: 2;
-        display: block;
-    }
-    
-    .profile .item-comments  .win-item .commentor-name {
-                -ms-grid-column: 2;
-                -ms-grid-row: 1;
-                -ms-grid-row-align: center;
-                display: block;
-    }
-        
-    .profile .item-comments  .win-item .comment-time {
-        -ms-grid-column: 3;
-        -ms-grid-row: 1;
-        -ms-grid-row-align: center;
-        -ms-grid-column-align: start;
-        display: block;
-    }
-        
-    .profile .item-comments  .win-item .comment-content {
-        -ms-grid-row: 2;
-        -ms-grid-column: 2;                
-        -ms-grid-column-span: 2;
-        height:auto;
-    }
-        
-    .profile .item-comments  .win-item .comment-replay {
-        -ms-grid-column: 4;
-        -ms-grid-row: 1;
-    }
-
-    
-@media screen and (-ms-view-state: snapped) {
-    .profile section[role=main] article {
-        /* Define a single column, vertically scrolling article in snapped mode. */
-        -ms-grid-columns: 300px 1fr;
-        -ms-grid-row: 2;
-        -ms-grid-rows: auto 60px;
+    .profilepage .itemslist .win-groupheader {
+        -ms-grid-columns: 1fr;
+        -ms-grid-rows: auto auto 1fr;
         display: -ms-grid;
         height: 100%;
-        margin-left: 20px;
-        overflow-x: hidden;
-        overflow-y: auto;
-        width: 300px;
+        margin-left: 0px;
+        margin-right: 68px;
+        padding: 0;
+        width: 480px;
     }
 
-        .profile section[role=main] article .item-image {
-            height: 140px;
-            width: 280px;
+        .profilepage .itemslist .win-groupheader .group-subtitle {
+            -ms-grid-row: 1;
+            margin-bottom: 14px;
+            margin-top: 6px;
+            max-height: 48pt;
+            overflow: hidden;
         }
 
-        .profile section[role=main] article .item-content {
-            padding-bottom: 60px;             
+        .profilepage .itemslist .win-groupheader .group-image {
+            -ms-grid-row: 2;
+            background-color: rgba(147, 149, 152, 1);
+            height: 238px;
+            margin: 0;
+            margin-bottom: 20px;
+            width: 480px;
+        }
+
+        .profilepage .itemslist .win-groupheader .group-description {
+            -ms-grid-row: 3;
+            margin-bottom: 55px;
+            overflow: hidden;
+        }
+
+    .profilepage .itemslist .win-item {
+        -ms-grid-columns: 110px 1fr;
+        -ms-grid-rows: 1fr;
+        display: -ms-grid;
+        height: 110px;
+        width: 472px;
+    }
+
+        .profilepage .itemslist .win-item .item-info {
+            -ms-grid-column: 2;
+            margin-left: 10px;
+        }
+
+            .profilepage .itemslist .win-item .item-info .item-title {
+                margin-top: 4px;
+                max-height: 20px;
+                overflow: hidden;
+            }
+
+            .profilepage .itemslist .win-item .item-info .item-subtitle {
+                opacity: 0.6;
+            }
+
+            .profilepage .itemslist .win-item .item-info .item-description {
+                max-height: 60px;
+                overflow: hidden;
+            }
+
+    .profilepage .itemslist .win-container {
+        margin-bottom: 15px;
+        margin-right: 60px;
+        padding: 7px;
+    }
+
+@media screen and (-ms-view-state: snapped) {
+
+    .profilepage .itemslist .win-vertical.win-viewport .win-surface {
+        margin-bottom: 30px;
+        margin-left: 6px;
+    }
+
+    .profilepage .itemslist .win-groupheader {
+        visibility: hidden;
+    }
+
+    .profilepage .itemslist .win-container {
+        margin-right: 42px;
+    }
+
+    .profilepage .itemslist .win-item {
+        -ms-grid-columns: 60px 1fr;
+        height: 60px;
+        width: 272px;
+    }
+
+        .profilepage .itemslist .win-item .item-info .item-title {
+            max-height: 30pt;
+        }
+
+        .profilepage .itemslist .win-item .item-info .item-description {
+            visibility: hidden;
         }
 }
 
 @media screen and (-ms-view-state: fullscreen-portrait) {
-    .profile section[role=main] article {
+    .profilepage .itemslist .win-horizontal.win-viewport .win-surface {
         margin-left: 100px;
     }
 }
-

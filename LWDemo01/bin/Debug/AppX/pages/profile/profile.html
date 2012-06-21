@@ -16,25 +16,34 @@
     <script src="/pages/profile/profile.js"></script>
 </head>
 <body>
-    <div class="profile fragment">
+        <!-- These templates are used to display each item in the ListView declared below. -->
+    <div class="headerTemplate" data-win-control="WinJS.Binding.Template">
+        <h2 class="group-subtitle" data-win-bind="textContent: profileName"></h2>
+        <img class="group-image" src="#" data-win-bind="src: profileAvatar;" />
+        <h4 class="group-description" data-win-bind="innerHTML: profileDescription"></h4>
+    </div>
+    <div class="itemtemplate" data-win-control="WinJS.Binding.Template">
+        <img class="item-image" src="#" data-win-bind="src: backgroundImage" />
+        <div class="item-image-replacer" data-win-bind="textContent:imageReplacer"></div>
+        <div class="item-info">
+            <h4 class="item-title" data-win-bind="textContent: title"></h4>
+            <h6 class="item-subtitle win-type-ellipsis" data-win-bind="textContent: subtitle"></h6>
+            <h4 class="item-description" data-win-bind="textContent: description"></h4>
+        </div>
+    </div>
+
+    <!-- The content that will be loaded and displayed. -->
+    <div class="profilepage fragment">
         <header aria-label="Header content" role="banner">
             <button class="win-backbutton" aria-label="Back" disabled></button>
             <h1 class="titlearea win-type-ellipsis">
-                <span class="pagetitle">Profile</span>
+                <span class="pagetitle"></span>
             </h1>
         </header>
         <section aria-label="Main content" role="main">
-            <article>
-                <div>
-                    <header>
-                        <h2 class="item-title"></h2>
-                        <h4 class="item-subtitle"></h4>
-                    </header>
-                    <img class="item-image" src="#" />
-                    <div class="item-content"></div>
-                </div>
-            </article>
+            <div class="itemslist" aria-label="List of this somebody's items" data-win-control="WinJS.UI.ListView" data-win-options="{ selectionMode: 'none' }"></div>
         </section>
     </div>
+
 </body>
 </html>

@@ -28,7 +28,8 @@
     var Groups = [
         { key: "laiwang1", title: "来往", subtitle: "laiwang subtitle title", backgroundImage: darkGray, description: "this is the laiwang brief wall." },
         { key: "laiwang2", title: "个人", subtitle: "myprofile subtitle title", backgroundImage: darkGray, description: "this is the myprofile." },
-        { key: "laiwang3", title: "好友", subtitle: "friend subtitle title", backgroundImage: darkGray, description: "this is the all friend." }
+        { key: "laiwang3", title: "好友", subtitle: "friend subtitle title", backgroundImage: darkGray, description: "this is the all friend." },
+        { key: "laiwang4", title: "在一起", subtitle: "event subtitle title", backgroundImage: darkGray, description: "this is the all events." }
     ];
     //四种item的规格，其实它们都是在css中定义的样式：小方，中长 ，中竖 ，大方 
     var sizes = ["smallItem", "midWidthItem", "midHeightItem", "largeItem"];
@@ -194,9 +195,10 @@
 
     //根据id获得某人的profile  posts
     //没有id也行
-    function getSomeBodyStream() {
-        var id = id || '';
+    function getSomeBodyStream(id) {
+        //var id = id || '';
         var postData = {
+            'userId ':(id?id:''),
             'cursor': 0,
             'size': __LENGTH__,
             'access_token': localStorage['access_token']
@@ -240,7 +242,7 @@
         });
     }
 
-    //获取好友列表
+    //获取好友列表，暂时只取100个
     function getFriends() {
         var postData = {
             'type': 'FOLLOWING',
@@ -268,6 +270,47 @@
                 });
             }
         })
+    }
+
+    //获取event列表，暂时只取50个
+    function getEvents(_id,_type) {
+        var postData = {
+            'type  ': (_type ? _type : 'JOIN'),
+            'userId ':(_id?_id:''),
+            'size': __LENGTH__,
+            'access_token': localStorage['access_token']
+        };
+        $.ajax({
+            global: false,
+            url: __API_DOMAIN__ + '/event/list',  //获取laiwang主墙
+            type: 'GET',
+            data: postData,
+            _success: function (data) {
+
+                data = data.values;
+
+                //如果取得的值为空
+                if (data.length === 0) {
+                    return;
+                }
+                
+                data.forEach(function (item) {//to do rebuild
+                    // Each of these sample items should have a reference to a particular group.
+                    item.group = Groups[3];
+                    item.eventTitle = item.title;
+                    item.subtitle = item.title;
+                    item.title = item.id;
+                    
+                    item.description = "";
+                    //item.key = item.id;
+                    
+                    item.eventCreator = item.creator.name;
+                    item.eventTime = "发起于" + transformDate(item.createdAt);
+                    item.eventMemberCount = "目前有" + item.totalMemberCount + "个参与者";
+                    eventLists.push(item);
+                });
+            }
+        });
     }
 
     var itemNum = 1;
@@ -312,7 +355,7 @@
         //return iSize;
         return sizes[0];
     }
-
+    
     //转换时间格式：毫秒-->yyyy-MM-dd HH:mm:ss
     function transformDate(ms) {
         var sDate = new Date(ms);
@@ -323,8 +366,10 @@
     getStream();
     getSomeBodyStream();
     getFriends();
+    getEvents();
 
     var friendLists = new WinJS.Binding.List();
+    var eventLists = new WinJS.Binding.List();
 
     // 此功能返回仅包含属于提供的组的项的 WinJS.Binding.List。
     function getItemsFromGroup(group) {
@@ -358,7 +403,8 @@
         resolveItemReference: resolveItemReference,
         transformDate: transformDate,
         otherToolsList: otherToolsList,
-        friendLists: friendLists
+        friendLists: friendLists,
+        eventLists: eventLists
     });
 })();
 

@@ -52,6 +52,7 @@
     </AppxManifest>
     <Content Include="css\default.css" />
     <Content Include="images\background01.jpg" />
+    <Content Include="images\eventicon.png" />
     <Content Include="images\item_bac01.jpg" />
     <Content Include="images\logo.png" />
     <Content Include="images\smalllogo.png" />
@@ -61,6 +62,9 @@
     <Content Include="js\default.js" />
     <Content Include="js\jquery-1.7.2.min.js" />
     <Content Include="js\navigator.js" />
+    <Content Include="pages\events\events.css" />
+    <Content Include="pages\events\events.html" />
+    <Content Include="pages\events\events.js" />
     <Content Include="pages\friend\friends.css" />
     <Content Include="pages\friend\friends.html" />
     <Content Include="pages\friend\friends.js" />

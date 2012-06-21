@@ -1,6 +1,7 @@
 css\default.css
 default.html
 images\background01.jpg
+images\eventicon.png
 images\item_bac01.jpg
 images\logo.png
 images\smalllogo.png
@@ -10,6 +11,9 @@ js\data.js
 js\default.js
 js\jquery-1.7.2.min.js
 js\navigator.js
+pages\events\events.css
+pages\events\events.html
+pages\events\events.js
 pages\friend\friends.css
 pages\friend\friends.html
 pages\friend\friends.js

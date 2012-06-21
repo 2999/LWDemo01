@@ -14,6 +14,8 @@
     var ui = WinJS.UI;
     var utils = WinJS.Utilities;
     var searchPageURI = "/pages/friend/friends.html";
+    var API_DOMAIN = Data.API_DOMAIN;
+    
 
     ui.Pages.define(searchPageURI, {
         /// <field elementType="Object" />
@@ -170,8 +172,7 @@
             element.querySelector(".filterselect").onchange = function (args) { this.filterChanged(element, args.currentTarget.value); }.bind(this);
         },
 
-        // 每当用户导航至此页面时都要调用此功能。它
-        // 使用应用程序的数据填充页面元素。
+        // 每当用户导航至此页面时都要调用此功能。它使用应用程序的数据填充页面元素。
         ready: function (element, options) {
             var listView = element.querySelector(".resultslist").winControl;
             listView.itemTemplate = element.querySelector(".itemtemplate");
@@ -201,6 +202,27 @@
             }
         }
     });
+
+    //获取某人的个人详细信息  useless
+    function getProfile(id) {
+        $.ajax({
+            global: false,
+            url: API_DOMAIN + '/user/profile/get',
+            type: 'GET',
+            data: {
+                'userId ': item.id,
+                'access_token': localStorage['access_token']
+            },
+            _success: function (_data) {                    
+                profileCard = {};
+                profileCard.friendName = _data.name;
+                profileCard.friendCreatedAt = _data.createdAt;
+                profileCard.friendCity = _data.city;
+                profileCard.friendCompany = _data.company;
+                profileCard.friendBrief = _data.brief;
+            }
+        });
+    }
 
     WinJS.Application.addEventListener("activated", function (args) {
         if (args.detail.kind === appModel.Activation.ActivationKind.search) {

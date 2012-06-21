@@ -16,13 +16,17 @@
     <AppXManifest Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-06-19T15:49:36.770</Modified>
+      <Modified>2012-06-21T16:18:31.506</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\css\default.css">
       <PackagePath>css\default.css</PackagePath>
       <Modified>2012-06-13T09:31:45.042</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\events\events.css">
+      <PackagePath>pages\events\events.css</PackagePath>
+      <Modified>2012-06-21T16:37:47.731</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\friend\friends.css">
       <PackagePath>pages\friend\friends.css</PackagePath>
@@ -46,7 +50,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\profile\profile.css">
       <PackagePath>pages\profile\profile.css</PackagePath>
-      <Modified>2012-06-15T11:58:15.792</Modified>
+      <Modified>2012-06-21T11:21:29.317</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\images\background01.jpg">
       <PackagePath>images\background01.jpg</PackagePath>
@@ -55,6 +59,10 @@
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\images\item_bac01.jpg">
       <PackagePath>images\item_bac01.jpg</PackagePath>
       <Modified>2012-06-08T13:47:19.717</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\images\eventicon.png">
+      <PackagePath>images\eventicon.png</PackagePath>
+      <Modified>2012-06-21T15:01:44.747</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\images\logo.png">
       <PackagePath>images\logo.png</PackagePath>
@@ -78,7 +86,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\js\data.js">
       <PackagePath>js\data.js</PackagePath>
-      <Modified>2012-06-17T18:21:54.817</Modified>
+      <Modified>2012-06-21T16:34:42.346</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\js\default.js">
       <PackagePath>js\default.js</PackagePath>
@@ -92,9 +100,13 @@
       <PackagePath>js\navigator.js</PackagePath>
       <Modified>2012-06-12T18:53:14.838</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\events\events.js">
+      <PackagePath>pages\events\events.js</PackagePath>
+      <Modified>2012-06-21T16:25:05.640</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\friend\friends.js">
       <PackagePath>pages\friend\friends.js</PackagePath>
-      <Modified>2012-06-19T14:10:23.414</Modified>
+      <Modified>2012-06-21T11:40:32.590</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\itemDetail\itemDetail.js">
       <PackagePath>pages\itemDetail\itemDetail.js</PackagePath>
@@ -106,7 +118,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\groupedItems\groupedItems.js">
       <PackagePath>pages\groupedItems\groupedItems.js</PackagePath>
-      <Modified>2012-06-15T09:39:02.195</Modified>
+      <Modified>2012-06-21T16:11:14.926</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\login\login.js">
       <PackagePath>pages\login\login.js</PackagePath>
@@ -114,15 +126,19 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\profile\profile.js">
       <PackagePath>pages\profile\profile.js</PackagePath>
-      <Modified>2012-06-17T18:22:26.858</Modified>
+      <Modified>2012-06-21T10:56:25.572</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\events\events.html">
+      <PackagePath>pages\events\events.html</PackagePath>
+      <Modified>2012-06-21T16:35:12.276</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\friend\friends.html">
       <PackagePath>pages\friend\friends.html</PackagePath>
-      <Modified>2012-06-17T18:23:02.647</Modified>
+      <Modified>2012-06-20T15:33:59.950</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\itemDetail\itemDetail.html">
       <PackagePath>pages\itemDetail\itemDetail.html</PackagePath>
-      <Modified>2012-06-15T14:26:21.683</Modified>
+      <Modified>2012-06-20T16:21:55.730</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\groupDetail\groupDetail.html">
       <PackagePath>pages\groupDetail\groupDetail.html</PackagePath>
@@ -142,11 +158,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\profile\profile.html">
       <PackagePath>pages\profile\profile.html</PackagePath>
-      <Modified>2012-06-15T11:58:07.393</Modified>
+      <Modified>2012-06-21T10:51:55.064</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2012-06-19T15:49:36.609</Modified>
+      <Modified>2012-06-21T16:18:31.277</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

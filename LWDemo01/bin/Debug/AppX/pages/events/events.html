@@ -12,26 +12,27 @@
     <script src="//Microsoft.WinJS.1.0.RC/js/ui.js"></script>
     
     <link href="/css/default.css" rel="stylesheet" />
-    <link href="/pages/friend/friends.css" rel="stylesheet" />
     <script src="/js/data.js"></script>
-    <script src="/pages/friend/friends.js"></script>
+    <link href="/pages/events/events.css" rel="stylesheet" />    
+    <script src="/pages/events/events.js"></script>
 </head>
 <body>
     <!-- This template is used to display each item in the ListView declared
          below. -->
     <div class="itemtemplate" data-win-control="WinJS.Binding.Template">
         <div class="item">
-            <img class="item-image" src="#" data-win-bind="src: backgroundImage; alt: title" />
+            <img class="item-image" src="/images/eventicon.png"  data-win-bind="alt: title" />
             <div class="item-content">
-                <h3 class="item-title win-type-x-small win-type-ellipsis" data-win-bind="innerHTML: name friends.markText"></h3>
-                <h4 class="item-subtitle win-type-x-small win-type-ellipsis" data-win-bind="innerHTML: subtitle friends.markText"></h4>
-                <h4 class="item-description win-type-x-small win-type-ellipsis" data-win-bind="innerHTML: description friends.markText"></h4>
+                <h3 class="item-title win-type-x-small win-type-ellipsis" data-win-bind="innerHTML: eventTitle events.markText"></h3>
+                <h4 class="item-subtitle win-type-x-small win-type-ellipsis" data-win-bind="innerHTML: eventCreator events.markText"></h4>
+                <h4 class="item-time win-type-x-small win-type-ellipsis" data-win-bind="innerHTML: eventTime events.markText"></h4>
+                <h4 class="item-description win-type-x-small win-type-ellipsis" data-win-bind="innerHTML: eventMemberCount events.markText"></h4>
             </div>
         </div>
     </div>
 
     <!-- The content that will be loaded and displayed. -->
-    <div class="friends fragment">
+    <div class="events fragment">
         <header aria-label="Header content" role="banner">
             <button class="win-backbutton" aria-label="Back" disabled></button>
             <div class="titlearea">
@@ -47,13 +48,5 @@
             <div class="resultslist" aria-label="Search results" data-win-control="WinJS.UI.ListView" data-win-options="{ selectionMode: 'none' }"></div>
         </section>
     </div>
-
-    <!--关于tip弹出层
-    <div class="friend-more-info" data-win-control="WinJS.UI.Flyout"  aria-label="{More info flyout}">
-        <p class="friend-name" data-win-bind="textContent:friendName"></p>
-        <p class="friend-city" data-win-bind="textContent:friendCity"></p>
-        <p class="friend-company" data-win-bind="textContent:friendCompany"></p>
-        <p class="friend-brief" data-win-bind="textContent:friendBrief"></p>
-    </div>-->
 </body>
 </html>

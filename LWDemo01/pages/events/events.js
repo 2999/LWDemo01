@@ -1,9 +1,14 @@
 ﻿// 有关“搜索联系人”模板的简介，请参阅以下文档:
 // http://go.microsoft.com/fwlink/?LinkId=232512
 
-// TODO: 将以下脚本标记添加到起始页的标头中以订阅搜索联系人事件。
+// TODO: 将以下脚本标记添加到起始页的标头中以
+// 订阅搜索联系人事件。
 //  
-// <script src="/pages/friend/friends.js"></script>
+// <script src="/pages/events/events.js"></script>
+//
+// TODO: Edit the manifest to enable use as a search target.  The package 
+// manifest could not be automatically updated.  Open the package manifest file
+// and ensure that support for activation of searching is enabled.
 
 (function () {
     "use strict";
@@ -13,9 +18,8 @@
     var nav = WinJS.Navigation;
     var ui = WinJS.UI;
     var utils = WinJS.Utilities;
-    var searchPageURI = "/pages/friend/friends.html";
+    var searchPageURI = "/pages/events/events.html";
     var API_DOMAIN = Data.API_DOMAIN;
-    
 
     ui.Pages.define(searchPageURI, {
         /// <field elementType="Object" />
@@ -27,50 +31,43 @@
             this.filters.push({ results: null, text: "All", predicate: function (item) { return true; } });
 
             // TODO: 替换或删除示例筛选器。
-            //this.filters.push({ results: null, text: "Group 1", predicate: function (item) { return item.group.key === "group1"; } });
-            //this.filters.push({ results: null, text: "Group 2+", predicate: function (item) { return item.group.key !== "group1"; } });
-            var ifilters = this.filters;
+            this.filters.push({ results: null, text: "Group 1", predicate: function (item) { return item.group.key === "group1"; } });
+            this.filters.push({ results: null, text: "Group 2", predicate: function (item) { return item.group.key !== "group1"; } });
 
-            //var groupedFriend = Data.friendLists.createGrouped(
-            //    function (item) { return item.pinyin.toUpperCase().charAt(0) },
-            //    function (item) { return { nameKey: item.pinyin.toUpperCase().charAt(0) }; }
-            //    );
-
-            Data.friendLists.forEach (function(friend) {
-                var title = friend.pinyin.toUpperCase().charAt(0);
-
-                for (var i = 0; i<ifilters.length;i++) {
-                    if (ifilters[i].text === title) {
-                        ifilters[i].results.push(friend);
-                        return;
-                    }
-                }
-
-                var obj = {};
-                obj.results = new WinJS.Binding.List();
-                obj.results.push(friend);
-                obj.text = title;
-                obj.predicate = function (item) { return item.pinyin.toUpperCase().charAt(0) === title; };
-                ifilters.push(obj);
-
-            })
-
+            //因为event的标题后端没有给出拼音，所以无法根据拼音首字母进行分类
+            //var ifilters = this.filters;
+            //Data.friendLists.forEach(function (friend) {
+            //    var title = friend.pinyin.toUpperCase().charAt(0);
+            //    for (var i = 0; i < ifilters.length; i++) {
+            //        if (ifilters[i].text === title) {
+            //            ifilters[i].results.push(friend);
+            //            return;
+            //        }
+            //    }
+            //    var obj = {};
+            //    obj.results = new WinJS.Binding.List();
+            //    obj.results.push(friend);
+            //    obj.text = title;
+            //    obj.predicate = function (item) { return item.pinyin.toUpperCase().charAt(0) === title; };
+            //    ifilters.push(obj);
+            //})
         },
 
         itemInvoked: function (args) {
             args.detail.itemPromise.done(function itemInvoked(item) {
                 // TODO: 导航到已调用的项。
-                nav.navigate("/pages/profile/profile.html", { item: item.data });
+                // nav.navigate("/html/<yourpage>.html", {item: item.data});
             });
         },
 
-        // 此功能使用提供的查询的搜索结果填充 WinJS.Binding.List。
+        // 此功能使用提供的查询的搜索结果
+        // 填充 WinJS.Binding.List。
         searchData: function (queryText) {
             var originalResults;
             var regex;
             // TODO: 对数据执行相应的搜索。
             if (window.Data) {
-                originalResults = Data.friendLists.createFiltered(function (item) {
+                originalResults = Data.eventLists.createFiltered(function (item) {
                     regex = new RegExp(queryText, "gi");
                     return (item.title.match(regex) || item.subtitle.match(regex) || item.description.match(regex));
                 });
@@ -105,8 +102,8 @@
         handleQuery: function (element, args) {
             var originalResults;
             this.lastSearch = args.queryText;
-            WinJS.Namespace.define("friends", { markText: this.markText.bind(this) });
-            utils.markSupportedForProcessing(friends.markText);
+            WinJS.Namespace.define("events", { markText: this.markText.bind(this) });
+            utils.markSupportedForProcessing(events.markText);
             this.initializeLayout(element.querySelector(".resultslist").winControl, Windows.UI.ViewManagement.ApplicationView.value);
             this.generateFilters();
             originalResults = this.searchData(args.queryText);
@@ -130,7 +127,7 @@
             }
         },
 
-        // 此功能为搜索词着色。在 /pages/friend/friends.html 中作为 ListView 项模板的一部分引用。
+        // 此功能为搜索词着色。在 /pages/events/events.html 中作为 ListView 项模板的一部分引用。
         markText: function (source, sourceProperties, dest, destProperties) {
             var text = source[sourceProperties[0]];
             var regex = new RegExp(this.lastSearch, "gi");
@@ -172,10 +169,11 @@
             element.querySelector(".filterselect").onchange = function (args) { this.filterChanged(element, args.currentTarget.value); }.bind(this);
         },
 
-        // 每当用户导航至此页面时都要调用此功能。它使用应用程序的数据填充页面元素。
+        // 每当用户导航至此页面时都要调用此功能。它
+        // 使用应用程序的数据填充页面元素。
         ready: function (element, options) {
             var listView = element.querySelector(".resultslist").winControl;
-            listView.itemTemplate = element.querySelector(".itemtemplate");
+            listView.itemTemplate = element.querySelector(".itemtemplate")
             listView.oniteminvoked = this.itemInvoked;
             this.handleQuery(element, options);
             listView.element.focus();
@@ -202,27 +200,6 @@
             }
         }
     });
-
-    //获取某人的个人详细信息  useless
-    function getProfile(id) {
-        $.ajax({
-            global: false,
-            url: API_DOMAIN + '/user/profile/get',
-            type: 'GET',
-            data: {
-                'userId ': item.id,
-                'access_token': localStorage['access_token']
-            },
-            _success: function (_data) {                    
-                profileCard = {};
-                profileCard.friendName = _data.name;
-                profileCard.friendCreatedAt = _data.createdAt;
-                profileCard.friendCity = _data.city;
-                profileCard.friendCompany = _data.company;
-                profileCard.friendBrief = _data.brief;
-            }
-        });
-    }
 
     WinJS.Application.addEventListener("activated", function (args) {
         if (args.detail.kind === appModel.Activation.ActivationKind.search) {
