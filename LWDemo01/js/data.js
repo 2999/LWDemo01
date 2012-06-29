@@ -3,7 +3,7 @@
 
     var __DOMAIN__ = 'http://laiwang.com';
     var __API_DOMAIN__ = 'http://api.laiwang.com/v1';
-    var __LENGTH__ = 25;
+    var __LENGTH__ = 24;
 
 
     var groupDescription = "Group Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor scelerisque lorem in vehicula. Aliquam tincidunt, lacus ut sagittis tristique, turpis massa volutpat augue, eu rutrum ligula ante a ante";
@@ -404,7 +404,8 @@
         transformDate: transformDate,
         otherToolsList: otherToolsList,
         friendLists: friendLists,
-        eventLists: eventLists
+        eventLists: eventLists,
+        Groups: Groups
     });
 })();
 
