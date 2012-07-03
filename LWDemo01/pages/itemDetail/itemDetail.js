@@ -79,7 +79,7 @@
                 listView.itemTemplate = element.querySelector(".commentTemplate");                
                 listView.itemDataSource = comments.dataSource;
                 //listView.groupDataSource = Data.groups.dataSource;
-                listView.layout = new ui.GridLayout({ groupHeaderPosition: "top" });
+                listView.layout = new ui.ListLayout({ groupHeaderPosition: "top" });
                 element.querySelector("#comments").winControl.forceLayout();
             }, 500);
 

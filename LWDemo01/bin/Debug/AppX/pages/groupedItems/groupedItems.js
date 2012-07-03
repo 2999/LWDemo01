@@ -6,6 +6,7 @@
     var nav = WinJS.Navigation;
     var ui = WinJS.UI;
     var utils = WinJS.Utilities;
+    var API_DOMAIN = Data.API_DOMAIN;
 
     ui.Pages.define("/pages/groupedItems/groupedItems.html", {
 
@@ -50,6 +51,12 @@
             listView.element.focus();
 
             this.otherTools(element, options);
+
+            //绑定右上角的头像事件
+            document.getElementById("buyButton").addEventListener("click", showConfirmFlyout, false);
+            document.getElementById("confirmButton").addEventListener("click", confirmOrder, false);
+            //document.getElementById("confirmFlyout").addEventListener("afterhide", onDismiss, false);
+
         },
         otherTools: function (element, options) {
             var otherToolListView = element.querySelector(".othertoolslist").winControl;
@@ -89,4 +96,69 @@
             }
         }
     });
+
+    
+
+    function showConfirmFlyout() {
+        //WinJS.log && WinJS.log("", "sample", "status");
+        var buyButton = document.getElementById("buyButton");
+        document.getElementById("confirmFlyout").winControl.show(buyButton);
+    }
+
+    function confirmOrder() {
+        //WinJS.log && WinJS.log("You have completed your purchase.", "sample", "status");
+        document.getElementById("confirmFlyout").winControl.hide();
+        
+        var button = document.getElementById("confirmButton");                
+        document.getElementById("postPopup").winControl.show(button);
+
+        document.getElementById("submitPost").addEventListener("click", submitPost, false);
+        document.getElementById("canalePost").addEventListener("click", canalePost, false);
+
+        // Create the message dialog and set its content
+        //var msg = new Windows.UI.Popups.MessageDialog("<textarea style='width:100px; height:50px;' placeholder='分享这一刻……'></textarea>");        
+        // Add commands and set their command handlers
+        //msg.commands.append(new Windows.UI.Popups.UICommand("Try again", commandInvokedHandler));
+        //msg.commands.append(new Windows.UI.Popups.UICommand("Close", commandInvokedHandler));
+        // Set the command that will be invoked by default
+        //msg.defaultCommandIndex = 0;
+        // Set the command to be invoked when escape is pressed
+        //msg.cancelCommandIndex = 1;
+        // Show the message dialog
+        //msg.showAsync();
+    }
+
+    //function commandInvokedHandler(command) {
+    //    // Display message                          
+    //    WinJS.log && WinJS.log("The '" + command.label + "' command has been selected.", "sample", "status");
+    //}
+    //function onDismiss() {
+    //        WinJS.log && WinJS.log("The purchase was not completed.", "sample", "status");
+    //}
+
+    function submitPost() {
+        var content = document.getElementById("postContent").textContent;
+
+        var postData = {
+            'content ': content,
+            'scope ': 'private'
+        };
+        $.ajax({
+            global: false,
+            url: API_DOMAIN + '/post/add',
+            type: 'POST',
+            data: postData,
+            _success: function (data) {
+                //WinJS.log && WinJS.log("Hello , new post ! ", "sample", "status");
+
+                document.getElementById("postPopup").winControl.hide();
+            }
+        })
+    }
+
+    function canalePost() {
+        document.getElementById("postPopup").winControl.hide();
+    }
+  
+
 })();

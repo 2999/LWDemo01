@@ -43,9 +43,13 @@
                     if (isError) {
                         //lastError = message;
                         //statusDiv.style.color = "blue";
+                        statusDiv.style.fontSize = "12pt";
+                        statusDiv.style.fontWeight = "100";
                     } else if (isStatus) {
                         //lastStatus = message;
-                        //statusDiv.style.color = "green";
+                        statusDiv.style.color = "yellow";
+                        statusDiv.style.fontSize = "12pt";
+                        statusDiv.style.fontWeight = "100";
                     }
                 }
             }

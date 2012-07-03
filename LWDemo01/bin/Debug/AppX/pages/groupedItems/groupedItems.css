@@ -3,6 +3,50 @@
 .groupeditemspage {
     overflow-x:auto;
 }
+    .groupeditemspage header[role=banner] #my-avatar {
+        position:absolute;
+        right:30px;
+        top:50px;        
+    }
+        .groupeditemspage header[role=banner] #my-avatar #buyButton {
+            border:none;
+            font-size:16pt;
+        }
+
+    .groupeditemspage #postPopup {
+        position:absolute;
+        width:100%;        
+        top:30%;
+        left:40%;
+        display: -ms-grid;
+        -ms-grid-rows:200px 50px;
+        -ms-grid-columns:300px 100px;
+    }
+
+         .groupeditemspage #postPopup #postContent {
+            -ms-grid-column-span:2;
+            margin:25px 50px;
+            width:330px;
+            height:150px;
+        }
+        
+        .groupeditemspage #postPopup #submitPost {
+            -ms-grid-row:2;
+            -ms-grid-column:1;
+            width:50px;
+            height:25px;
+            margin-right:30px;
+            -ms-grid-column-align:end;
+        }
+        
+        .groupeditemspage #postPopup #canalePost {
+            -ms-grid-row:2;
+            -ms-grid-column:2;
+            -ms-grid-column-align:start;
+            width:50px;
+            height:25px;
+        }
+        
     .groupeditemspage section[role=main] {
         padding-right:200px;
     }

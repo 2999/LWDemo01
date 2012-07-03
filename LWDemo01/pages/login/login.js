@@ -10,10 +10,8 @@
 
             this.ACCESS_TOKEN_URL = __API_DOMAIN__ + "/oauth/access_token";
             this.AUTHORIZATION_URL = __API_DOMAIN__ + "/oauth/authorize";
-            this.CLIENT_ID = "7308008019538234612";
-            this.CLIENT_SECRET = "0707d875eba340268f0d09a54a47fcbe";
-            // this.CLIENT_ID = "112233445566778899";
-            // this.CLIENT_SECRET = "112233445566778899";
+            this.CLIENT_ID = "2229905312779057447";
+            this.CLIENT_SECRET = "c93afdacc08b404a9fb4b0e07283df51";
             this.REDIRECT_URL = "http://laiwang.com/";
             this.SCOPES = [];
         },

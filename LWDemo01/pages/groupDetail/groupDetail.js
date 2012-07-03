@@ -11,6 +11,7 @@
     var lightGray = "../../images/item_bac01.jpg";
     var list = new WinJS.Binding.List();
     var _cursor = 0;
+    var pageList;
 
     function getStream(id) {
         var id = id || '';
@@ -58,7 +59,7 @@
         });
     }
 
-    
+   
 
     ui.Pages.define("/pages/groupDetail/groupDetail.html", {
 
@@ -87,7 +88,7 @@
             var listView = element.querySelector(".itemslist").winControl;
             var group = (options && options.groupKey) ? Data.resolveGroupReference(options.groupKey) : Data.groups.getAt(0);
             this.items = Data.getItemsFromGroup(group);
-            var pageList = this.items.createGrouped(
+            pageList = this.items.createGrouped(
                 function groupKeySelector(item) { return group.key; },
                 function groupDataSelector(item) { return group; }
             );
@@ -96,14 +97,22 @@
 
             element.querySelector("header[role=banner] .pagetitle").textContent = group.title;            
 
+            
+            function detect2load(listView) {
+                var lastIndex = listView.indexOfLastVisible;
+                if(lastIndex === 24){
+                    getStream();
+                }
+            }
+
             //初始化listview控件的属性，目的是让其滚动加载
             listView.loadingBehavior= 'incremental';
             listView.pagesToLoad= 2;
             listView.automaticallyLoadPages= true;
             listView.pagesToLoadThreshold= 1;
-            listView.selectionMode= 'none';
-            listView.tapBehavior= 'none';
-            listView.swipeBehavior= 'none' ;
+            //listView.selectionMode= 'none';
+            //listView.tapBehavior= 'none';
+            //listView.swipeBehavior= 'none' ;
 
             listView.itemDataSource = pageList.dataSource;
             listView.itemTemplate = element.querySelector(".itemtemplate");
@@ -111,11 +120,16 @@
             //listView.groupHeaderTemplate = element.querySelector(".headerTemplate");
             listView.oniteminvoked = this.itemInvoked.bind(this);
 
-            WinJS.log && WinJS.log("1", "sample", "status");
+            listView.addEventListener("scroll", detect2load, false);
+            listView.dispatchEvent("scroll", this);
+                        
+
+            //WinJS.log && WinJS.log("1", "sample", "status");
 
             this.initializeLayout(listView, Windows.UI.ViewManagement.ApplicationView.value);
             listView.element.focus();
         },
+
 
         unload: function () {
             this.items.dispose();
