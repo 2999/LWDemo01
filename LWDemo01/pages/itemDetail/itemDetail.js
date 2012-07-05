@@ -5,10 +5,11 @@
     var utils = WinJS.Utilities;
     var API_DOMAIN = Data.API_DOMAIN;
     var comments;
+    var item;
 
     //填充item的内容
     var stuff = function (element, options) {
-        var item = options && options.item ? Data.resolveItemReference(options.item) : Data.items.getAt(0);
+        //var item = options && options.item ? Data.resolveItemReference(options.item) : Data.items.getAt(0);
         element.querySelector(".titlearea .pagetitle").textContent = item.subtitle;//item.group.title;
         element.querySelector("article .item-title").textContent = item.title;
         //element.querySelector("article .item-subtitle").textContent = item.subtitle;
@@ -25,7 +26,7 @@
     }
 
     //获取某一条item(即：post)的评论
-    function getComment(item, size) {
+    function getComment(size) {
         $.ajax({
             global: false,
             url: API_DOMAIN + '/post/comment/list',
@@ -55,13 +56,57 @@
     }
 
 
+    //发评论
+    function toComment() {
+        var content = document.getElementById("commentContent").textContent;
+        if (content === "" || content === null) {
+            return;
+        }
+        $.ajax({
+            global: false,
+            url: API_DOMAIN + '/post/comment/add',
+            type: 'POST',
+            data: {
+                'postId': item.id,
+                'publisherId': item.publisher.id,
+                'content ': content
+            },
+            _success: function (_data) {
+                if (_data.length !== 0) {
+                    document.getElementById("commentContent").textContent = "";
+
+                    //把新添加的评论放入map中
+                    var newcomment = {};
+                    newcomment.item = item;
+                    newcomment.commentorLink = API_DOMAIN + "/u/" + _data.commentor.id;
+                    newcomment.commentorAvatar = _data.commentor.avatar;
+                    newcomment.commentorName = _data.commentor.name;
+                    newcomment.commentCreatedAt = Data.transformDate(_data.createdAt);
+                    newcomment.comment = _data.content;
+                    comments.push(newcomment);
+
+                    //在页面上插入新的评论
+                    //怎么做呢？
+                    
+                }
+            }
+        });
+    }
+
+    //取消发评论
+    function cancleComment() {
+        document.getElementById("commentContent").textContent = "";
+        
+    }
+
+
     ui.Pages.define("/pages/itemDetail/itemDetail.html", {
         // 每当用户导航至此页面时都要调用此功能。它使用应用程序的数据填充页面元素。
         ready: function (element, options) {
-            var item = options && options.item ? Data.resolveItemReference(options.item) : Data.items.getAt(0);
+            item = options && options.item ? Data.resolveItemReference(options.item) : Data.items.getAt(0);
             stuff(element, options);
             comments = new WinJS.Binding.List();//每次请求时都要重新new WinJS.Binding.List()，否则所有的评论数据都会被push到其中
-            getComment(item, 50);
+            getComment(50);
 
             setTimeout(function () {                
                 if (comments.length === 0) {
@@ -83,6 +128,9 @@
                 element.querySelector("#comments").winControl.forceLayout();
             }, 500);
 
+            
+            document.getElementById("submitComment").addEventListener("click", toComment, false);
+            document.getElementById("canaleComment").addEventListener("click", cancleComment, false);
         }
     });
 })();

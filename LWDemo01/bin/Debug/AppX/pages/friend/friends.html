@@ -16,17 +16,41 @@
     <script src="/js/data.js"></script>
     <script src="/pages/friend/friends.js"></script>
 </head>
-<body>
-    <!-- This template is used to display each item in the ListView declared
-         below. -->
-    <div class="itemtemplate" data-win-control="WinJS.Binding.Template">
+<body>    
+
+    <!-- Template for the group headers in the zoomed in ListView -->
+    <div id="headerTemplate" data-win-control="WinJS.Binding.Template" style="display: none">
+        <div class="simpleHeaderItem">
+            <h1 data-win-bind="innerText: nameKey"></h1>
+        </div>
+    </div>
+
+    <!-- Template for the items in the zoomed in ListView 
+    <div id="mediumListIconTextTemplate" data-win-control="WinJS.Binding.Template" style="display: none">
+        <div class="mediumListIconTextItem">
+            <img src="#" class="mediumListIconTextItem-Image" data-win-bind="src: picture" />
+            <div class="mediumListIconTextItem-Detail">
+                <h4 data-win-bind="innerText: title"></h4>
+                <h6 data-win-bind="innerText: text"></h6>
+            </div>
+        </div>
+    </div>-->
+    <!-- This template is used to display each item in the ListView. -->
+    <div class="itemtemplate" id="mediumListIconTextTemplate" data-win-control="WinJS.Binding.Template" style="display: none">
         <div class="item">
             <img class="item-image" src="#" data-win-bind="src: backgroundImage; alt: title" />
             <div class="item-content">
-                <h3 class="item-title win-type-x-small win-type-ellipsis" data-win-bind="innerHTML: name friends.markText"></h3>
-                <h4 class="item-subtitle win-type-x-small win-type-ellipsis" data-win-bind="innerHTML: subtitle friends.markText"></h4>
-                <h4 class="item-description win-type-x-small win-type-ellipsis" data-win-bind="innerHTML: description friends.markText"></h4>
+                <h3 class="item-title" data-win-bind="innerHTML: name"></h3>
+                <h4 class="item-subtitle" data-win-bind="innerHTML: subtitle"></h4>
+                <h4 class="item-description" data-win-bind="innerHTML: description"></h4>
             </div>
+        </div>
+    </div>
+
+    <!-- Template for the items in the zoomed out ListView of the SemanticZoom -->
+    <div id="semanticZoomTemplate" data-win-control="WinJS.Binding.Template" style="display: none">
+        <div class="semanticZoomItem">
+            <h2 class="semanticZoomItem-Text" data-win-bind="innerText: nameKey"></h2>
         </div>
     </div>
 
@@ -41,11 +65,36 @@
             </div>
         </header>
         <section aria-label="Main content" role="main">
-            <div class="filterarea">
+            <!--<div class="filterarea">
                 <ul class="filterbar"></ul>
                 <select class="filterselect"></select>
             </div>
             <div class="resultslist" aria-label="Search results" data-win-control="WinJS.UI.ListView" data-win-options="{ selectionMode: 'none' }"></div>
+                -->
+
+            <!-- SemanticZoom using two ListViews -->
+            <div id="semanticZoomDiv"  class="resultslist" data-win-control="WinJS.UI.SemanticZoom">                
+                <!-- The zoomed in ListView -->
+                <div id="zoomedInListView"
+                    data-win-control="WinJS.UI.ListView" 
+                    data-win-options="{ 
+                        itemTemplate: select('#mediumListIconTextTemplate'), 
+                        groupHeaderTemplate: select('#headerTemplate'), 
+                        selectionMode: 'none'
+                    }"
+                ></div>
+
+                <!-- The zoomed out ListView -->
+                <div id="zoomedOutListView"
+                    data-win-control="WinJS.UI.ListView"
+                    data-win-options="{                     
+                        itemTemplate: select('#semanticZoomTemplate'), 
+                        selectionMode: 'none', 
+                        tapBehavior: 'invoke', 
+                        swipeBehavior: 'none' 
+                    }"
+                ></div>
+            </div>
         </section>
     </div>
 
@@ -56,5 +105,6 @@
         <p class="friend-company" data-win-bind="textContent:friendCompany"></p>
         <p class="friend-brief" data-win-bind="textContent:friendBrief"></p>
     </div>-->
+
 </body>
 </html>

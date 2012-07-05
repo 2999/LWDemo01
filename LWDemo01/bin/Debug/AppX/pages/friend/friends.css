@@ -181,3 +181,25 @@
         margin-left: 90px;
     }
 }
+
+.simpleHeaderItem
+{
+    width: 50px;
+    height: 50px;
+    padding: 8px;
+}   
+/* Template for items in the zoomed out ListView */
+.semanticZoomItem
+{
+    color: white;
+    width: 140px;
+    height: 52px;
+    overflow: hidden;
+    padding: 9px 15px;
+    white-space: nowrap;
+    display: -ms-flexbox;
+    -ms-flex-pack: end;
+    -ms-flex-direction: column;
+    background-color: rgb(25, 188, 71);
+    opacity:.8;
+}
