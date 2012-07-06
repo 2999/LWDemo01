@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <title>eventDetailMembers </title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0.RC/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0.RC/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0.RC/js/ui.js"></script>
+    
+    <link href="eventDetailMembers .css" rel="stylesheet" />
+    <!-- <script src="eventDetailMembers .js"></script> -->
+    <script src="eventDetail.js"></script>
+</head>
+<body>
+
+    <!-- <div class="itemtemplate" id="memberTemplate" data-win-control="WinJS.Binding.Template" style="display: none">
+        <div class="item">
+            <img class="item-image" src="#" data-win-bind="src: backgroundImage; alt: title" />
+            <div class="item-content">
+                <h3 class="item-title" data-win-bind="innerHTML: name"></h3>
+                <h4 class="item-subtitle" data-win-bind="innerHTML: subtitle"></h4>
+                <h4 class="item-description" data-win-bind="innerHTML: description"></h4>
+            </div>
+        </div>
+    </div> -->
+
+    <div data-win-control="WinJS.UI.SettingsFlyout" aria-label="App Settings Flyout" data-win-options="{settingsCommandId:'defaults',width:'wide'}">
+            <!-- Use either 'win-ui-light' or 'win-ui-dark' depending on the contrast between the header title and background color --> <!-- Background color reflects app's personality -->
+            <!-- <div class="win-ui-dark win-header" style="background-color:#00b2f0">
+                <button type="button" onclick="WinJS.UI.SettingsFlyout.show()" class="win-backbutton"></button>
+                <div class="win-label">Defaults</div>
+                <img src="../images/smallTile-sdk.png" style="position: absolute; right: 40px;"/>
+            </div>
+            <div class="win-content">
+                <div id="allMembers"  data-win-control="WinJS.UI.ListView" 
+                    data-win-options="{ 
+                        itemTemplate: select('#memberTemplate'),
+                        itemDataSource:???,
+                        selectionMode: 'none'
+                    }"
+                ></div>
+            </div>-->
+            <div class="win-settings-section">
+                <h3>Toggle switch</h3>
+                <p>Use toggle switches to let users set Boolean values.</p>
+                <div id="Toggle1" data-win-control="WinJS.UI.ToggleSwitch" data-win-options="{title:'Download updates automatically',checked:true}">
+                </div>
+                <div id="Toggle2" data-win-control="WinJS.UI.ToggleSwitch" data-win-options="{title:'Install updates automatically'}">
+                </div>
+            </div>
+    </div>
+    <!-- ENDSETTINGSFLYOUT -->
+</body>
+</html>

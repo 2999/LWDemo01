@@ -56,7 +56,7 @@
         itemInvoked: function (args) {
             args.detail.itemPromise.done(function itemInvoked(item) {
                 // TODO: 导航到已调用的项。
-                // nav.navigate("/html/<yourpage>.html", {item: item.data});
+                nav.navigate("/pages/eventDetail/eventDetail.html", { item: item.data });
             });
         },
 

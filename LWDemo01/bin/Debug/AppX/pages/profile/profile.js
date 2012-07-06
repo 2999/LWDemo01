@@ -22,8 +22,10 @@
         initializeLayout: initializeLayout,
 
         itemInvoked: function (args) {
-            var item = this.items.getAt(args.detail.itemIndex);
-            nav.navigate("/pages/itemDetail/itemDetail.html", { item: Data.getItemReference(item) });
+            //var item = this.items.getAt(args.detail.itemIndex);
+            args.detail.itemPromise.done(function itemInvoked(item) {
+                nav.navigate("/pages/itemDetail/itemDetail.html", { item: item.data });
+            })
         },
 
         // 每当用户导航至此页面时都要调用此功能。它使用应用程序的数据填充页面元素。
@@ -50,7 +52,7 @@
                 listView.itemTemplate = element.querySelector(".itemtemplate");
                 listView.groupDataSource = pageList.groups.dataSource;
                 listView.groupHeaderTemplate = element.querySelector(".headerTemplate");
-                listView.oniteminvoked = _this.itemInvoked.bind(_this);
+                listView.oniteminvoked = _this.itemInvoked;
 
                 initializeLayout(listView, Windows.UI.ViewManagement.ApplicationView.value);
                 listView.element.focus();

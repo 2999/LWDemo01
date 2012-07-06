@@ -63,6 +63,12 @@
     <Content Include="js\default.js" />
     <Content Include="js\jquery-1.7.2.min.js" />
     <Content Include="js\navigator.js" />
+    <Content Include="pages\eventDetail\eventDetail.css" />
+    <Content Include="pages\eventDetail\eventDetail.html" />
+    <Content Include="pages\eventDetail\eventDetail.js" />
+    <Content Include="pages\eventDetail\eventDetailMembers .css" />
+    <Content Include="pages\eventDetail\eventDetailMembers .html" />
+    <Content Include="pages\eventDetail\eventDetailMembers .js" />
     <Content Include="pages\events\events.css" />
     <Content Include="pages\events\events.html" />
     <Content Include="pages\events\events.js" />

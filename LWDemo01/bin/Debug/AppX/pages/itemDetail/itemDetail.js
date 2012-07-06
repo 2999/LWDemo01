@@ -95,35 +95,27 @@
 
     //取消发评论
     function cancleComment() {
-        document.getElementById("commentContent").textContent = "";
-        
+        document.getElementById("commentContent").textContent = "";        
     }
 
 
     ui.Pages.define("/pages/itemDetail/itemDetail.html", {
         // 每当用户导航至此页面时都要调用此功能。它使用应用程序的数据填充页面元素。
         ready: function (element, options) {
-            item = options && options.item ? Data.resolveItemReference(options.item) : Data.items.getAt(0);
+            item = options && options.item ? options.item : Data.items.getAt(0); //Data.resolveItemReference(options.item)
+            
             stuff(element, options);
             comments = new WinJS.Binding.List();//每次请求时都要重新new WinJS.Binding.List()，否则所有的评论数据都会被push到其中
             getComment(50);
 
             setTimeout(function () {                
-                if (comments.length === 0) {
-                    //如果没有评论，就让“评论”二字隐藏
-                    //element.querySelector(".item-comment-title").style.display = "none";
+                if (comments.length === 0) {                    
                     comments = new WinJS.Binding.List([{ item: item, commentorLink: "", commentorAvatar: "", commentorName: "", commentCreatedAt: "", comment: "" }]);//, type: "smallListIconTextItem"                    
                 } else { }
-                //element.querySelector(".item-comment-title").textContent = "评论(" + comments.length + ")";
-
-                //var groupedComments = comments.createGrouped(function (c) { return c.item.id; }, function (c) { return c.item; });
-                //var itemDataSourse = groupedComments.groups.dataSource;
-
+                
                 var listView = element.querySelector("#comments").winControl;
-                //listView.groupHeaderTemplate = element.querySelector(".headerTemplate");
                 listView.itemTemplate = element.querySelector(".commentTemplate");                
                 listView.itemDataSource = comments.dataSource;
-                //listView.groupDataSource = Data.groups.dataSource;
                 listView.layout = new ui.ListLayout({ groupHeaderPosition: "top" });
                 element.querySelector("#comments").winControl.forceLayout();
             }, 500);

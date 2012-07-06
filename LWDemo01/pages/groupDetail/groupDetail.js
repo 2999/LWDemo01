@@ -79,7 +79,7 @@
 
         itemInvoked: function (args) {
             var item = this.items.getAt(args.detail.itemIndex);
-            nav.navigate("/pages/itemDetail/itemDetail.html", { item: Data.getItemReference(item) });
+            nav.navigate("/pages/itemDetail/itemDetail.html", { item: item });//Data.getItemReference(item)
         },
 
         // 每当用户导航至此页面时都要调用此功能。它

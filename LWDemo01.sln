@@ -9,8 +9,6 @@ Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "MessageDialogSample", "..\j
 EndProject
 Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "Controls_Flyout", "..\javascriptDemo\HTML flyout control sample\JavaScript\Controls_Flyout.jsproj", "{373B6FA1-D9A2-42E2-B9CC-D6D4BE0E36A5}"
 EndProject
-Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "Controls_GroupingandSemanticZoom", "..\javascriptDemo\HTML ListView grouping and SemanticZoom sample\JavaScript\Controls_GroupingandSemanticZoom.jsproj", "{047620F4-904D-42AA-8142-6C5DD0F9FD9A}"
-EndProject
 Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "ApplicationSettings", "..\javascriptDemo\App settings sample\JavaScript\ApplicationSettings.jsproj", "{EAC34847-9A37-4FC0-B9EB-5E32F1BE23C0}"
 EndProject
 Global
@@ -25,18 +23,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{047620F4-904D-42AA-8142-6C5DD0F9FD9A}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{047620F4-904D-42AA-8142-6C5DD0F9FD9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{047620F4-904D-42AA-8142-6C5DD0F9FD9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{047620F4-904D-42AA-8142-6C5DD0F9FD9A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{047620F4-904D-42AA-8142-6C5DD0F9FD9A}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{047620F4-904D-42AA-8142-6C5DD0F9FD9A}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{047620F4-904D-42AA-8142-6C5DD0F9FD9A}.Release|ARM.ActiveCfg = Release|Any CPU
-		{047620F4-904D-42AA-8142-6C5DD0F9FD9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{047620F4-904D-42AA-8142-6C5DD0F9FD9A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{047620F4-904D-42AA-8142-6C5DD0F9FD9A}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{047620F4-904D-42AA-8142-6C5DD0F9FD9A}.Release|x64.ActiveCfg = Release|Any CPU
-		{047620F4-904D-42AA-8142-6C5DD0F9FD9A}.Release|x86.ActiveCfg = Release|Any CPU
 		{13D7F6CF-58B4-4019-A96C-E8A250D82F43}.Debug|ARM.ActiveCfg = Debug|Any CPU
 		{13D7F6CF-58B4-4019-A96C-E8A250D82F43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{13D7F6CF-58B4-4019-A96C-E8A250D82F43}.Debug|Any CPU.Build.0 = Debug|Any CPU

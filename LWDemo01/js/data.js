@@ -282,7 +282,7 @@
         };
         $.ajax({
             global: false,
-            url: __API_DOMAIN__ + '/event/list',  //获取laiwang主墙
+            url: __API_DOMAIN__ + '/event/list',
             type: 'GET',
             data: postData,
             _success: function (data) {

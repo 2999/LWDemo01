@@ -34,7 +34,7 @@
                 // 如果页面未对齐，则表示用户已调用项。
                 var item = Data.items.getAt(args.detail.itemIndex);
                 //if (item.group.key === "laiwang1") {
-                    nav.navigate("/pages/itemDetail/itemDetail.html", { item: Data.getItemReference(item) });
+                nav.navigate("/pages/itemDetail/itemDetail.html", { item: item });//Data.getItemReference(item)
                 //}
             }
         },
