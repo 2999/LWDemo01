@@ -26,7 +26,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\eventDetail\eventDetail.css">
       <PackagePath>pages\eventDetail\eventDetail.css</PackagePath>
-      <Modified>2012-07-06T15:20:23.898</Modified>
+      <Modified>2012-07-09T12:18:25.958</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\eventDetail\eventDetailMembers .css">
       <PackagePath>pages\eventDetail\eventDetailMembers .css</PackagePath>
@@ -114,7 +114,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\eventDetail\eventDetail.js">
       <PackagePath>pages\eventDetail\eventDetail.js</PackagePath>
-      <Modified>2012-07-06T17:33:42.350</Modified>
+      <Modified>2012-07-09T11:54:23.796</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\eventDetail\eventDetailMembers .js">
       <PackagePath>pages\eventDetail\eventDetailMembers .js</PackagePath>
@@ -150,11 +150,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\eventDetail\eventDetail.html">
       <PackagePath>pages\eventDetail\eventDetail.html</PackagePath>
-      <Modified>2012-07-06T17:07:03.600</Modified>
+      <Modified>2012-07-09T12:07:49.078</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\eventDetail\eventDetailMembers .html">
       <PackagePath>pages\eventDetail\eventDetailMembers .html</PackagePath>
-      <Modified>2012-07-06T17:29:47.891</Modified>
+      <Modified>2012-07-09T09:52:42.788</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\events\events.html">
       <PackagePath>pages\events\events.html</PackagePath>

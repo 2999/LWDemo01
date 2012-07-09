@@ -18,8 +18,7 @@
     <div class="headerTemplate" data-win-control="WinJS.Binding.Template">
         <!--<h2 class="event-subtitle" data-win-bind="textContent: eventName"></h2>-->
         <h4 class="event-creator-time" data-win-bind="textContent: eventCreatorTime"></h4>
-        <h4 class="event-memberNum" data-win-bind="textContent: eventMemberNum"></h4>
-        <button id="seeAllMember" class="seeAllMember">seeAllMember</button>
+        <h4 class="event-memberNum" data-win-bind="textContent: eventMemberNum"></h4>        
     </div>
 
     <div class="itemtemplate" data-win-control="WinJS.Binding.Template">
@@ -40,8 +39,20 @@
             </h1>
         </header>
         <section aria-label="Main content" role="main">
+            <button id="seeAllMember" class="seeAllMember">ShowAllMember</button>
             <div class="itemslist" aria-label="List of this group's items" data-win-control="WinJS.UI.ListView" data-win-options="{ selectionMode: 'none' }"></div>
         </section>
     </div>
+
+    <div class="membersTemplate" id="membersTemplate" data-win-control="WinJS.Binding.Template">
+        <img src="#" class="memberAvatar" data-win-bind="src:memberAvatar" />
+        <h4 class="memberName" data-win-bind="textContent:memberName"></h4>
+    </div>
+
+    <div id="memberPanel">
+        <h3>扎堆成员：</h3>
+        <div class="members" id="members" data-win-control="WinJS.UI.ListView" data-win-options="{selectionMode: 'none'}"></div>
+    </div>
+
 </body>
 </html>

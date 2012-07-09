@@ -8,6 +8,7 @@
     var API_DOMAIN = Data.API_DOMAIN;
     var currentEventInfo;
     var currentEventPosts;
+    var members = new WinJS.Binding.List();
     var lightGray = "../../images/item_bac01.jpg";
     
 
@@ -53,15 +54,26 @@
                 listView.itemTemplate = element.querySelector(".itemtemplate");
                 listView.groupDataSource = pageList.groups.dataSource;
                 listView.groupHeaderTemplate = element.querySelector(".headerTemplate");
-                listView.oniteminvoked = _this.itemInvoked.bind(_this);
-                
-                element.querySelector("#seeAllMember").addEventListener("click",showAllMembers,false);
-                
+                listView.oniteminvoked = _this.itemInvoked.bind(_this); 
 
                 initializeLayout(listView, Windows.UI.ViewManagement.ApplicationView.value);
                 listView.element.focus();
-            }, 500);
 
+                //关于Event的成员
+                var memberListView = element.querySelector(".members").winControl;
+                currentEventInfo[0].members.forEach(function (member) {
+                    member.memberAvatar = member.avatar;
+                    member.memberName = member.name;
+                    members.push(member);
+                });
+                memberListView.itemDataSource = members.dataSource;
+                memberListView.itemTemplate = element.querySelector(".membersTemplate");
+                memberListView.layout = new ui.ListLayout();
+                //memberListView.oniteminvoked = _this.itemInvoked.bind(_this);
+
+                seeAllMember.addEventListener("click", togglePanelUI, false);
+
+            }, 500);
         },
 
 
@@ -114,6 +126,7 @@
                 obj.eventName = Groups[0].eventName = _data.title;
                 obj.eventCreatorTime = Groups[0].eventCreatorTime = _data.creator.name + "创建于：" + Data.transformDate(_data.createdAt);
                 obj.eventMemberNum = Groups[0].eventMemberNum = "当前参与人数：" + _data.totalMemberCount;
+                obj.members = _data.members;
                 currentEventInfo.push(obj);
             }
         });
@@ -165,9 +178,36 @@
         });
     }
 
-    function showAllMembers() {
-        WinJS.log && WinJS.log("eventDetailMembers", "samples", "status");
-        WinJS.UI.SettingsFlyout.showSettings("defaults", "eventDetailMembers.html");
+    var animating = WinJS.Promise.wrap();
+
+    function togglePanelUI() {
+        if (seeAllMember.innerHTML === "ShowAllMember") {
+            seeAllMember.innerHTML = "HideAllMember";
+
+            // If element is already animating, wait until current animation is complete before starting the show animation.
+            animating = animating
+                .then(function () {
+                    // Set desired final opacity on the UI element.
+                    memberPanel.style.opacity = "1";
+
+                    // Run show panel animation.
+                    // Element animates from the specified offset to its actual position.
+                    // For a panel that is located at the edge of the screen, the offset should be the same size as the panel element.
+                    // When possible, use the default offset by leaving the offset argument empty to get the best performance.
+                    return WinJS.UI.Animation.showPanel(memberPanel);
+                });
+        } else {
+            seeAllMember.innerHTML = "ShowAllMember";
+
+            // If element is still animating in, wait until current animation is complete before starting the hide animation.
+            animating = animating
+                .then(function () { return WinJS.UI.Animation.hidePanel(memberPanel); })
+                .then(
+                    // On animation success or failure, set final opacity to 0 to hide UI element.
+                    function () { memberPanel.style.opacity = "0"; },
+                    function () { memberPanel.style.opacity = "0"; }
+                );
+        }
     }
 
 })();
