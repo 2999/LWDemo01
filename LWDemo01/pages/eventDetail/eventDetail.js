@@ -8,7 +8,7 @@
     var API_DOMAIN = Data.API_DOMAIN;
     var currentEventInfo;
     var currentEventPosts;
-    var members = new WinJS.Binding.List();
+    var currentEventMembers;
     var lightGray = "../../images/item_bac01.jpg";
     
 
@@ -64,9 +64,9 @@
                 currentEventInfo[0].members.forEach(function (member) {
                     member.memberAvatar = member.avatar;
                     member.memberName = member.name;
-                    members.push(member);
+                    currentEventMembers.push(member);
                 });
-                memberListView.itemDataSource = members.dataSource;
+                memberListView.itemDataSource = currentEventMembers.dataSource;
                 memberListView.itemTemplate = element.querySelector(".membersTemplate");
                 memberListView.layout = new ui.ListLayout();
                 //memberListView.oniteminvoked = _this.itemInvoked.bind(_this);
@@ -116,6 +116,7 @@
 
     function getEventInfo(eventId) {
         currentEventInfo = [];
+        currentEventMembers = new WinJS.Binding.List();
         $.ajax({
             global: false,
             url: API_DOMAIN + '/event/get',
