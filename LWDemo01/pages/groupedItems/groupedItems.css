@@ -49,6 +49,9 @@
         
     .groupeditemspage section[role=main] {
         padding-right:200px;
+        display:-ms-grid;
+        -ms-grid-columns:3144px 3144px 120px;
+        -ms-grid-rows:640px;
     }
 .groupeditemspage .groupeditemslist .win-horizontal.win-viewport .win-surface {
     margin-left: 46px;
@@ -255,16 +258,23 @@
     -ms-grid-rows: 1fr 50px;
 }
 
+.groupeditemspage #mypostlist {
+    -ms-grid-column:2;
+    margin-right:24px;
+}
+
 /* 右侧其它工具：好友、Event、找好友*/
-.groupeditemspage section.othertools {
+/*.groupeditemspage othertoolslist {
         position:relative;
         left:1400px;
         top:100px;
         width:120px;
-    } 
+    }*/ 
 
-.othertoolslist {
-
+.groupeditemspage .othertoolslist {
+    -ms-grid-column:3;
+    margin-right:0;
+    margin-top:75px;
 }
     .othertoolslist .win-item {
         display:block;
@@ -278,11 +288,7 @@
     width:200px;
     height:200px;
 }
-    /*.othertooltemplate .othertool-bacimage {
-        display:block;
-        width:100%;
-        height:100%;
-    }*/
+
     .othertoolslist .win-item .othertool-title {
         display:block;
         font-size:20pt;

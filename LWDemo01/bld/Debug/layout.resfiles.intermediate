@@ -15,9 +15,6 @@ js\navigator.js
 pages\eventDetail\eventDetail.css
 pages\eventDetail\eventDetail.html
 pages\eventDetail\eventDetail.js
-pages\eventDetail\eventDetailMembers .css
-pages\eventDetail\eventDetailMembers .html
-pages\eventDetail\eventDetailMembers .js
 pages\events\events.css
 pages\events\events.html
 pages\events\events.js

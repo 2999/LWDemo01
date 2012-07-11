@@ -11,10 +11,11 @@
     var lightGray = "../../images/item_bac01.jpg";
     var list = new WinJS.Binding.List();
     var _cursor = 0;
-    var pageList;
+    //var pageList;
+    var postNum = 24;//因为在data.js中已取得了24条记录
+    var scrollPosition = postNum / 4 * 537 + 5;//item'width:565px    
 
-    function getStream(id) {
-        var id = id || '';
+    function getStream(scrollPos, handle) {
         var postData = {
             'cursor': _cursor,
             'size': 24,
@@ -25,14 +26,21 @@
             url: API_DOMAIN + '/feed/post/main/list',  //获取laiwang主墙
             type: 'GET',
             data: postData,
-            _success: function (data) {
-
+            _success: function (data) {                               
+                //对data重新赋值
                 data = data.values;
 
                 //如果取得的值为空
                 if (data.length === 0) {
                     return;
                 }
+
+                postNum = postNum + data.length;
+                _cursor = data[data.length - 1].createdAt;
+                scrollPosition = postNum / 4 * 537 + 5;
+
+                //WinJS.log && WinJS.log(postNum + "_" + scrollPos, "sample", "status");
+
                 for (var index in data) {
                     data[index].content = data[index].content.replace(/\n/gi, '<br/>');
                 }
@@ -40,8 +48,7 @@
 
                     // Each of these sample items should have a reference to a particular group.
                     item.group = Groups[0];//通过上面的ajax请求获取到的都是laiwang主墙信息，所以取Groups数组中的第0项：laiwang
-
-                    //item.key = item.id;
+                                        
                     item.itemPublisherAvatar = item.publisher.avatar;
                     item.pname = item.publisher.name;
                     item.ptime = Data.transformDate(item.createdAt);
@@ -55,6 +62,7 @@
                     //item.type = getOneSize();
                     list.push(item);
                 });
+                handle();
             }
         });
     }
@@ -88,51 +96,55 @@
             var listView = element.querySelector(".itemslist").winControl;
             var group = (options && options.groupKey) ? Data.resolveGroupReference(options.groupKey) : Data.groups.getAt(0);
             this.items = Data.getItemsFromGroup(group);
-            pageList = this.items.createGrouped(
-                function groupKeySelector(item) { return group.key; },
-                function groupDataSelector(item) { return group; }
-            );
-
+            //pageList = this.items.createGrouped(
+            //    function groupKeySelector(item) {
+            //        return group.key;
+            //    },
+            //    function groupDataSelector(item) {
+            //        return group;
+            //    }
+            //);
+            
             _cursor = this.items.getAt(this.items.length - 1).createdAt;
 
             element.querySelector("header[role=banner] .pagetitle").textContent = group.title;            
-
-            
-            function detect2load(listView) {
-                var lastIndex = listView.indexOfLastVisible;
-                if(lastIndex === 24){
-                    getStream();
-                }
-            }
 
             //初始化listview控件的属性，目的是让其滚动加载
             listView.loadingBehavior= 'incremental';
             listView.pagesToLoad= 2;
             listView.automaticallyLoadPages= true;
             listView.pagesToLoadThreshold= 1;
-            //listView.selectionMode= 'none';
-            //listView.tapBehavior= 'none';
-            //listView.swipeBehavior= 'none' ;
 
-            listView.itemDataSource = pageList.dataSource;
+            //listView.itemDataSource = pageList.dataSource;
+            listView.itemDataSource = this.items.dataSource;
             listView.itemTemplate = element.querySelector(".itemtemplate");
-            //listView.groupDataSource = pageList.groups.dataSource;
-            //listView.groupHeaderTemplate = element.querySelector(".headerTemplate");
-            listView.oniteminvoked = this.itemInvoked.bind(this);
+            listView.oniteminvoked = this.itemInvoked.bind(this);            
 
-            listView.addEventListener("scroll", detect2load, false);
-            listView.dispatchEvent("scroll", this);
+            listView.addEventListener("loadingstatechanged", function (ev) {                
+                //scrollPosition+1366(这是win-viewport)-120(这是margin-left)=win-surface=postNum / 4 * 537 + 5
+                var scrollPos = listView.scrollPosition;
+                WinJS.log && WinJS.log(scrollPos, "sample", "status");
+                if (scrollPos + 1366 - 120 === scrollPosition) {
+                    //WinJS.log && WinJS.log("===", "sample", "status");
+
+                    //把数据添加到listview中让显示出来
+                    var handle = function () {
+                        this.items.push(list);
+                        listView.loadMorePages();
+                    }
+
+                    getStream(scrollPos,handle);
+                    
+                }
+            }, false);
                         
-
-            //WinJS.log && WinJS.log("1", "sample", "status");
-
             this.initializeLayout(listView, Windows.UI.ViewManagement.ApplicationView.value);
             listView.element.focus();
         },
 
 
         unload: function () {
-            this.items.dispose();
+            this.items && this.items.dispose();
         },
 
         // 此功能更新页面布局以响应 viewState 更改。

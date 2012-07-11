@@ -20,10 +20,7 @@
     //var sampleGroups = [
     //    { key: "group1", title: "Group Title: 1", subtitle: "Group Subtitle: 1", backgroundImage: darkGray, description: groupDescription },
     //    { key: "group2", title: "Group Title: 2", subtitle: "Group Subtitle: 2", backgroundImage: lightGray, description: groupDescription },
-    //    { key: "group3", title: "Group Title: 3", subtitle: "Group Subtitle: 3", backgroundImage: mediumGray, description: groupDescription },
-    //    { key: "group4", title: "Group Title: 4", subtitle: "Group Subtitle: 4", backgroundImage: lightGray, description: groupDescription },
-    //    { key: "group5", title: "Group Title: 5", subtitle: "Group Subtitle: 5", backgroundImage: mediumGray, description: groupDescription },
-    //    { key: "group6", title: "Group Title: 6", subtitle: "Group Subtitle: 6", backgroundImage: darkGray, description: groupDescription }
+    //    { key: "group3", title: "Group Title: 3", subtitle: "Group Subtitle: 3", backgroundImage: mediumGray, description: groupDescription }
     //];
     var Groups = [
         { key: "laiwang1", title: "来往", subtitle: "laiwang subtitle title", backgroundImage: darkGray, description: "this is the laiwang brief wall." },
@@ -32,50 +29,18 @@
         { key: "laiwang4", title: "在一起", subtitle: "event subtitle title", backgroundImage: darkGray, description: "this is the all events." }
     ];
     //四种item的规格，其实它们都是在css中定义的样式：小方，中长 ，中竖 ，大方 
-    var sizes = ["smallItem", "midWidthItem", "midHeightItem", "largeItem"];
-
-    
+    var sizes = ["smallItem", "midWidthItem", "midHeightItem", "largeItem"];    
 
     // 这些示例项的每个项都应具有对特定组的引用。
    /* //var sampleItems = [
         { group: sampleGroups[0], title: "Item Title: 1", subtitle: "Item Subtitle: 1", description: itemDescription, content: itemContent, backgroundImage: lightGray },
         { group: sampleGroups[0], title: "Item Title: 2", subtitle: "Item Subtitle: 2", description: itemDescription, content: itemContent, backgroundImage: darkGray },
         { group: sampleGroups[0], title: "Item Title: 3", subtitle: "Item Subtitle: 3", description: itemDescription, content: itemContent, backgroundImage: mediumGray },
-        { group: sampleGroups[0], title: "Item Title: 4", subtitle: "Item Subtitle: 4", description: itemDescription, content: itemContent, backgroundImage: darkGray },
-        { group: sampleGroups[0], title: "Item Title: 5", subtitle: "Item Subtitle: 5", description: itemDescription, content: itemContent, backgroundImage: mediumGray },
 
         { group: sampleGroups[1], title: "Item Title: 1", subtitle: "Item Subtitle: 1", description: itemDescription, content: itemContent, backgroundImage: darkGray },
-        { group: sampleGroups[1], title: "Item Title: 2", subtitle: "Item Subtitle: 2", description: itemDescription, content: itemContent, backgroundImage: mediumGray },
-        { group: sampleGroups[1], title: "Item Title: 3", subtitle: "Item Subtitle: 3", description: itemDescription, content: itemContent, backgroundImage: lightGray },
-
+        
         { group: sampleGroups[2], title: "Item Title: 1", subtitle: "Item Subtitle: 1", description: itemDescription, content: itemContent, backgroundImage: mediumGray },
-        { group: sampleGroups[2], title: "Item Title: 2", subtitle: "Item Subtitle: 2", description: itemDescription, content: itemContent, backgroundImage: lightGray },
-        { group: sampleGroups[2], title: "Item Title: 3", subtitle: "Item Subtitle: 3", description: itemDescription, content: itemContent, backgroundImage: darkGray },
-        { group: sampleGroups[2], title: "Item Title: 4", subtitle: "Item Subtitle: 4", description: itemDescription, content: itemContent, backgroundImage: lightGray },
-        { group: sampleGroups[2], title: "Item Title: 5", subtitle: "Item Subtitle: 5", description: itemDescription, content: itemContent, backgroundImage: mediumGray },
-        { group: sampleGroups[2], title: "Item Title: 6", subtitle: "Item Subtitle: 6", description: itemDescription, content: itemContent, backgroundImage: darkGray },
-        { group: sampleGroups[2], title: "Item Title: 7", subtitle: "Item Subtitle: 7", description: itemDescription, content: itemContent, backgroundImage: mediumGray },
-
-        { group: sampleGroups[3], title: "Item Title: 1", subtitle: "Item Subtitle: 1", description: itemDescription, content: itemContent, backgroundImage: darkGray },
-        { group: sampleGroups[3], title: "Item Title: 2", subtitle: "Item Subtitle: 2", description: itemDescription, content: itemContent, backgroundImage: lightGray },
-        { group: sampleGroups[3], title: "Item Title: 3", subtitle: "Item Subtitle: 3", description: itemDescription, content: itemContent, backgroundImage: darkGray },
-        { group: sampleGroups[3], title: "Item Title: 4", subtitle: "Item Subtitle: 4", description: itemDescription, content: itemContent, backgroundImage: lightGray },
-        { group: sampleGroups[3], title: "Item Title: 5", subtitle: "Item Subtitle: 5", description: itemDescription, content: itemContent, backgroundImage: mediumGray },
-        { group: sampleGroups[3], title: "Item Title: 6", subtitle: "Item Subtitle: 6", description: itemDescription, content: itemContent, backgroundImage: lightGray },
-
-        { group: sampleGroups[4], title: "Item Title: 1", subtitle: "Item Subtitle: 1", description: itemDescription, content: itemContent, backgroundImage: lightGray },
-        { group: sampleGroups[4], title: "Item Title: 2", subtitle: "Item Subtitle: 2", description: itemDescription, content: itemContent, backgroundImage: darkGray },
-        { group: sampleGroups[4], title: "Item Title: 3", subtitle: "Item Subtitle: 3", description: itemDescription, content: itemContent, backgroundImage: lightGray },
-        { group: sampleGroups[4], title: "Item Title: 4", subtitle: "Item Subtitle: 4", description: itemDescription, content: itemContent, backgroundImage: mediumGray },
-
-        { group: sampleGroups[5], title: "Item Title: 1", subtitle: "Item Subtitle: 1", description: itemDescription, content: itemContent, backgroundImage: lightGray },
-        { group: sampleGroups[5], title: "Item Title: 2", subtitle: "Item Subtitle: 2", description: itemDescription, content: itemContent, backgroundImage: darkGray },
-        { group: sampleGroups[5], title: "Item Title: 3", subtitle: "Item Subtitle: 3", description: itemDescription, content: itemContent, backgroundImage: mediumGray },
-        { group: sampleGroups[5], title: "Item Title: 4", subtitle: "Item Subtitle: 4", description: itemDescription, content: itemContent, backgroundImage: darkGray },
-        { group: sampleGroups[5], title: "Item Title: 5", subtitle: "Item Subtitle: 5", description: itemDescription, content: itemContent, backgroundImage: lightGray },
-        { group: sampleGroups[5], title: "Item Title: 6", subtitle: "Item Subtitle: 6", description: itemDescription, content: itemContent, backgroundImage: mediumGray },
-        { group: sampleGroups[5], title: "Item Title: 7", subtitle: "Item Subtitle: 7", description: itemDescription, content: itemContent, backgroundImage: darkGray },
-        { group: sampleGroups[5], title: "Item Title: 8", subtitle: "Item Subtitle: 8", description: itemDescription, content: itemContent, backgroundImage: lightGray }
+        { group: sampleGroups[2], title: "Item Title: 2", subtitle: "Item Subtitle: 2", description: itemDescription, content: itemContent, backgroundImage: lightGray }
     ];*/
 
     // Get a reference for an item, using the group key and item title as a unique reference to the item that can be easily serialized.
@@ -84,10 +49,16 @@
     }
 
     function resolveGroupReference(key) {
-        for (var i = 0; i < groupedItems.groups.length; i++) {
-            if (groupedItems.groups.getAt(i).key === key) {
-                return groupedItems.groups.getAt(i);
-            }
+        //for (var i = 0; i < groupedItems.groups.length; i++) {
+        //    if (groupedItems.groups.getAt(i).key === key) {
+        //        return groupedItems.groups.getAt(i);
+        //    }
+        //}
+
+        if (key === "laiwang2") {//如果是个人posts页
+            return groupedMyPostItems.groups.getAt(0);
+        } else {
+            return groupedItems.groups.getAt(0);
         }
     }
 
@@ -236,7 +207,7 @@
                     //如果用户没有发图片，就要用内容代替图片
                     item.imageReplacer = (!item.attachments[0] || !item.attachments[0].picture) ? item.description : "";
                     item.type = getOneSize();
-                    list.push(item);
+                    myPostList.push(item);
                 });
             }
         });
@@ -368,16 +339,27 @@
     getFriends();
     getEvents();
 
+    var list = new WinJS.Binding.List();
+    var myPostList = new WinJS.Binding.List();
     var friendLists = new WinJS.Binding.List();
     var eventLists = new WinJS.Binding.List();
 
     // 此功能返回仅包含属于提供的组的项的 WinJS.Binding.List。
     function getItemsFromGroup(group) {
-        return list.createFiltered(function (item) { return item.group.key === group.key; });
+        if (group.key === "laiwang2") {//如果是个人posts页
+            return myPostList;
+        } else {
+            return list;
+        }        
     }
 
-    var list = new WinJS.Binding.List();
+    
     var groupedItems = list.createGrouped(
+        function groupKeySelector(item) { return item.group.key; },
+        function groupDataSelector(item) { return item.group; }
+    );
+
+    var groupedMyPostItems = myPostList.createGrouped(
         function groupKeySelector(item) { return item.group.key; },
         function groupDataSelector(item) { return item.group; }
     );
@@ -393,19 +375,21 @@
     //});
 
     WinJS.Namespace.define("Data", {
-        API_DOMAIN: __API_DOMAIN__,
-        DOMAIN: __DOMAIN__,
-        items: groupedItems,
-        groups: groupedItems.groups,
-        getItemsFromGroup: getItemsFromGroup,
-        getItemReference: getItemReference,
-        resolveGroupReference: resolveGroupReference,
-        resolveItemReference: resolveItemReference,
-        transformDate: transformDate,
-        otherToolsList: otherToolsList,
-        friendLists: friendLists,
-        eventLists: eventLists,
-        Groups: Groups
+        API_DOMAIN: __API_DOMAIN__,//api的域名
+        DOMAIN: __DOMAIN__,//网址
+        items: groupedItems,//个人主feeds墙相关：即个人可看到的posts，经过了“组化”的
+        groups: groupedItems.groups,//个人主feeds墙相关：各项之“组”
+        getItemsFromGroup: getItemsFromGroup,//个人主feeds墙相关：
+        getItemReference: getItemReference,//个人主feeds墙相关：
+        resolveGroupReference: resolveGroupReference,//个人主feeds墙相关：
+        resolveItemReference: resolveItemReference,//个人主feeds墙相关：
+        myPostList: groupedMyPostItems,//个人自己的墙：即自己所发的posts，经过了“组化”的
+        myPostListGroups: groupedMyPostItems.groups,//个人自己的墙：各项之“组”
+        transformDate: transformDate,//转换日期格式的一个方法
+        otherToolsList: otherToolsList,//其它工具：主屏右侧的friend、event等
+        friendLists: friendLists,//好友列表，取了100条数据
+        eventLists: eventLists,//扎堆列表，取了24条
+        Groups: Groups//所有的组
     });
 })();
 

@@ -5,6 +5,8 @@ Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "LWDemo01", "LWDemo01\LWDemo
 EndProject
 Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "AnimationLibrary", "..\javascriptDemo\HTML animation library sample\JavaScript\AnimationLibrary.jsproj", "{20DCC941-D3D9-4961-9138-35B6E9B8805B}"
 EndProject
+Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "Controls_ListViewLoadingBehaviors", "..\javascriptDemo\HTML ListView loading behaviors sample\JavaScript\Controls_ListViewLoadingBehaviors.jsproj", "{13D7F6CF-58B4-4019-A96C-E8A250D82F43}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
@@ -17,6 +19,18 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13D7F6CF-58B4-4019-A96C-E8A250D82F43}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{13D7F6CF-58B4-4019-A96C-E8A250D82F43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13D7F6CF-58B4-4019-A96C-E8A250D82F43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13D7F6CF-58B4-4019-A96C-E8A250D82F43}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{13D7F6CF-58B4-4019-A96C-E8A250D82F43}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{13D7F6CF-58B4-4019-A96C-E8A250D82F43}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{13D7F6CF-58B4-4019-A96C-E8A250D82F43}.Release|ARM.ActiveCfg = Release|Any CPU
+		{13D7F6CF-58B4-4019-A96C-E8A250D82F43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13D7F6CF-58B4-4019-A96C-E8A250D82F43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13D7F6CF-58B4-4019-A96C-E8A250D82F43}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{13D7F6CF-58B4-4019-A96C-E8A250D82F43}.Release|x64.ActiveCfg = Release|Any CPU
+		{13D7F6CF-58B4-4019-A96C-E8A250D82F43}.Release|x86.ActiveCfg = Release|Any CPU
 		{20DCC941-D3D9-4961-9138-35B6E9B8805B}.Debug|ARM.ActiveCfg = Debug|Any CPU
 		{20DCC941-D3D9-4961-9138-35B6E9B8805B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{20DCC941-D3D9-4961-9138-35B6E9B8805B}.Debug|Any CPU.Build.0 = Debug|Any CPU

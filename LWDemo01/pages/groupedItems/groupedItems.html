@@ -32,7 +32,9 @@
             </div>
         </div>
     </div>
-
+    <div id="othertooltemplate" class="othertooltemplate" data-win-control="WinJS.Binding.Template">                      
+        <div class="othertool-title" data-win-bind="textContent: otherToolTitle"></div>
+    </div>
     <!-- The content that will be loaded and displayed. -->
     <div class="fragment groupeditemspage">
         <header aria-label="Header content" role="banner">
@@ -70,18 +72,22 @@
                         type: WinJS.UI.GridLayout 
                     } 
                 }"></div>
-        </section>
-        <section class="othertools">
+
+            <div id="mypostlist"  class="groupeditemslist" aria-label="List of groups" data-win-control="WinJS.UI.ListView"
+                 data-win-options="{                    
+                    selectionMode: 'none',
+                    layout: { 
+                        groupInfo: {enableCellSpanning: true,cellWidth: 200,cellHeight: 200}, 
+                        type: WinJS.UI.GridLayout 
+                    } 
+                }"></div>
+
             <div class="othertoolslist" aria-label="List of groups" data-win-control="WinJS.UI.ListView" 
                 data-win-options="{ 
                     selectionMode: 'none'
                 }"></div>
         </section>
-
-        <div id="othertooltemplate" class="othertooltemplate" data-win-control="WinJS.Binding.Template">                      
-            <div class="othertool-title" data-win-bind="textContent: otherToolTitle"></div>
-        </div>
-
+        
     </div>
 </body>
 </html>

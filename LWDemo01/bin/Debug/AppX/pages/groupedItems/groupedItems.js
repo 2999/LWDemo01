@@ -25,6 +25,20 @@
             }
         },
 
+        initializeMyPostLayout: function (myPostListView, viewState) {
+            /// <param name="listView" value="WinJS.UI.ListView.prototype" />
+
+            if (viewState === appViewState.snapped) {
+                myPostListView.itemDataSource = Data.groups.dataSource;
+                myPostListView.groupDataSource = null;
+                myPostListView.layout = new ui.ListLayout();
+            } else {
+                myPostListView.itemDataSource = Data.myPostList.dataSource;
+                myPostListView.groupDataSource = Data.myPostListGroups.dataSource;
+                myPostListView.layout = new ui.GridLayout({ groupHeaderPosition: "top" });
+            }
+        },
+
         itemInvoked: function (args) {
             if (appView.value === appViewState.snapped) {
                 // 如果页面已对齐，则表示用户已调用组。
@@ -41,14 +55,22 @@
 
         // 每当用户导航至此页面时都要调用此功能。它使用应用程序的数据填充页面元素。
         ready: function (element, options) {
+
+            //这个是关于主墙的
             var listView = element.querySelector(".groupeditemslist").winControl;
             listView.groupHeaderTemplate = element.querySelector(".headerTemplate");
             listView.itemTemplate = element.querySelector(".itemtemplate");
             listView.oniteminvoked = this.itemInvoked.bind(this);
-
             this.initializeLayout(listView, appView.value);
-            //listView.forceLayout();
-            listView.element.focus();
+            //listView.element.focus();
+
+            //这个是关于展示个人所发的信息的
+            var myPostListView = element.querySelector("#mypostlist").winControl;
+            myPostListView.groupHeaderTemplate = element.querySelector(".headerTemplate");
+            myPostListView.itemTemplate = element.querySelector(".itemtemplate");
+            myPostListView.oniteminvoked = this.itemInvoked.bind(this);
+            this.initializeMyPostLayout(myPostListView, appView.value);
+            //myPostListView.element.focus();
 
             this.otherTools(element, options);
 
@@ -157,7 +179,11 @@
     }
 
     function canalePost() {
+
+        //WinJS.UI.Animation.showPopup(myPopupUI, null);
+
         document.getElementById("postPopup").winControl.hide();
+
     }
   
 
