@@ -8,7 +8,11 @@
     var utils = WinJS.Utilities;
     var searchPageURI = "/pages/friend/friends.html";
     var API_DOMAIN = Data.API_DOMAIN;
-    
+    var groupedFriend;//这是绑定到zoomedInListView上的数据源
+    var _groupedFriend = new WinJS.Binding.List();//这是新取得的好友列表，"组化"后要添加到groupedFriend中
+    var _friendNum = 100;
+    var _lockFriends = [];
+
 
     ui.Pages.define(searchPageURI, {
    
@@ -40,7 +44,7 @@
            
             document.querySelector(".titlearea .pagetitle").innerHTML = "Search";
 
-            var groupedFriend = Data.friendLists.createGrouped(
+            groupedFriend = Data.friendLists.createGrouped(
                     function (item) { return item.pinyin.toUpperCase().charAt(0) },
                     function (item) { return { nameKey: item.pinyin.toUpperCase().charAt(0) }; }
                     );
@@ -51,6 +55,9 @@
             zoomedInListView.itemDataSource = groupedFriend.dataSource;
             zoomedInListView.groupDataSource = groupedFriend.groups.dataSource;
             zoomedInListView.oniteminvoked = this.itemInvoked;
+            zoomedInListView.addEventListener("loadingstatechanged", function () {
+                loadingstatechangedHandle(zoomedInListView);
+            }, false);
             //this.initializeLayout(element.querySelector("#zoomedInListView").winControl, Windows.UI.ViewManagement.ApplicationView.value);
             //element.querySelector("#zoomedInListView").winControl.forceLayout();
 
@@ -84,24 +91,81 @@
         }
     });
 
-    //获取某人的个人详细信息  useless
-    //function getProfile(id) {
-    //    $.ajax({
-    //        global: false,
-    //        url: API_DOMAIN + '/user/profile/get',
-    //        type: 'GET',
-    //        data: {
-    //            'userId ': item.id,
-    //            'access_token': localStorage['access_token']
-    //        },
-    //        _success: function (_data) {                    
-    //            profileCard = {};
-    //            profileCard.friendName = _data.name;
-    //            profileCard.friendCreatedAt = _data.createdAt;
-    //            profileCard.friendCity = _data.city;
-    //            profileCard.friendCompany = _data.company;
-    //            profileCard.friendBrief = _data.brief;
-    //        }
-    //    });
-    //}
+    function loadingstatechangedHandle(listView) {
+        //scrollPosition+1366(这是win-viewport)-120(这是margin-left)=win-surface=postNum / 4 * 537 + 5
+        //var _scrollPos = listView.scrollPosition;
+        var _indexOfLastVisible = listView.indexOfLastVisible;
+
+        WinJS.log && WinJS.log(_indexOfLastVisible, "sample", "status");
+
+        //如果滚动到了底部，才去试图加载新的内容
+        if (_indexOfLastVisible === _friendNum - 1) {
+            //如果list的最后的一项和_item的最后一项相同，说明已经把list插入了_item中，则不需要再执行push，否则就执行push            
+            //if (_lockFriends[_lockFriends.length - 1] && (_lockFriends[_lockFriends.length - 1].id !== groupedFriend.getAt(groupedFriend.length - 1).id)) {
+
+                //把数据添加到listview中让显示出来
+                var handle = function () {
+                    //进行“组化                
+                    _groupedFriend = _groupedFriend.createGrouped(
+                        function (item) { return item.pinyin.toUpperCase().charAt(0) },
+                        function (item) { return { nameKey: item.pinyin.toUpperCase().charAt(0) }; }
+                        );
+
+                    _groupedFriend.forEach(function (friend) {
+                        groupedFriend.push(friend);
+                    })
+                    listView.loadMorePages();
+                    //_lockFriends = [];
+                }
+                getFriends(handle);
+            //}
+        }
+    }
+
+    //获取好友列表，取100个
+    function getFriends(handle) {
+        
+        var postData = {
+            'type': 'FOLLOWING',
+            'offset ':_friendNum,
+            'size': 10,
+            'access_token': localStorage['access_token']
+        };
+        $.ajax({
+            global: false,
+            url: API_DOMAIN + '/relationship/friend/list',
+            type: 'GET',
+            data: postData,
+            _success: function (data) {
+                data = data.values;
+                //如果取得的值为空
+                if (data.length === 0) {
+                    return;
+                }
+
+                //如果存在“锁数组”中的最后一个元素和取得的最后一个元素的id相同，则说明是重复取值，要返回
+                if (_lockFriends[_lockFriends.length - 1] && (_lockFriends[_lockFriends.length - 1].id === data[data.length - 1].id)) {
+                    return;
+                }
+
+                _groupedFriend = new WinJS.Binding.List();
+                _friendNum = _friendNum + data.length;
+
+                data.forEach(function (item) {
+
+                    //把没有经过重新改造过的值存入_lockFriends中
+                    _lockFriends.push(item);
+
+                    item.group = Data.Groups[2];
+                    item.title = item.id;
+                    item.subtitle = item.connectionType;
+                    item.backgroundImage = item.avatar;
+                    item.description = "";
+                    _groupedFriend.push(item);
+                });
+                handle();                
+            }
+        })
+    }
+
 })();

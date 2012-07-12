@@ -118,7 +118,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\friend\friends.js">
       <PackagePath>pages\friend\friends.js</PackagePath>
-      <Modified>2012-07-05T10:21:15.141</Modified>
+      <Modified>2012-07-12T15:03:52.176</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\itemDetail\itemDetail.js">
       <PackagePath>pages\itemDetail\itemDetail.js</PackagePath>
