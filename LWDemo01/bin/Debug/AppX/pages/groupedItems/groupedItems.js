@@ -75,9 +75,20 @@
             this.otherTools(element, options);
 
             //绑定右上角的头像事件
-            document.getElementById("buyButton").addEventListener("click", showConfirmFlyout, false);
+            document.getElementById("myAvatar").addEventListener("click", showConfirmFlyout, false);
             document.getElementById("confirmButton").addEventListener("click", confirmOrder, false);
             //document.getElementById("confirmFlyout").addEventListener("afterhide", onDismiss, false);
+            
+            
+            //document.getElementById('scenarioHideButtons').addEventListener("click", doHideItems, false);
+            // Set the default state of scenario buttons
+            
+            //document.getElementById('scenarioHideButtons').disabled = true;
+            // Set the default state of all the AppBar
+            document.getElementById('postPopup').winControl.sticky = true;
+            // Listen for the AppBar events and enable and disable the buttons if the bar is shown or hidden
+            document.getElementById('postPopup').winControl.addEventListener("aftershow", scenarioBarShown, false);
+            document.getElementById('postPopup').winControl.addEventListener("beforehide", scenarioBarHidden, false);
 
         },
         otherTools: function (element, options) {
@@ -123,44 +134,27 @@
 
     function showConfirmFlyout() {
         //WinJS.log && WinJS.log("", "sample", "status");
-        var buyButton = document.getElementById("buyButton");
-        document.getElementById("confirmFlyout").winControl.show(buyButton);
+        var myAvatar = document.getElementById("myAvatar");
+        document.getElementById("confirmFlyout").winControl.show(myAvatar);
     }
 
     function confirmOrder() {
         //WinJS.log && WinJS.log("You have completed your purchase.", "sample", "status");
         document.getElementById("confirmFlyout").winControl.hide();
+        document.getElementById('postPopup').winControl.show();
         
-        var button = document.getElementById("confirmButton");                
-        document.getElementById("postPopup").winControl.show(button);
+        //var button = document.getElementById("confirmButton");                
+        //document.getElementById("postPopup").winControl.show(button);
 
         document.getElementById("submitPost").addEventListener("click", submitPost, false);
         document.getElementById("canalePost").addEventListener("click", canalePost, false);
 
-        // Create the message dialog and set its content
-        //var msg = new Windows.UI.Popups.MessageDialog("<textarea style='width:100px; height:50px;' placeholder='分享这一刻……'></textarea>");        
-        // Add commands and set their command handlers
-        //msg.commands.append(new Windows.UI.Popups.UICommand("Try again", commandInvokedHandler));
-        //msg.commands.append(new Windows.UI.Popups.UICommand("Close", commandInvokedHandler));
-        // Set the command that will be invoked by default
-        //msg.defaultCommandIndex = 0;
-        // Set the command to be invoked when escape is pressed
-        //msg.cancelCommandIndex = 1;
-        // Show the message dialog
-        //msg.showAsync();
+       
     }
 
-    //function commandInvokedHandler(command) {
-    //    // Display message                          
-    //    WinJS.log && WinJS.log("The '" + command.label + "' command has been selected.", "sample", "status");
-    //}
-    //function onDismiss() {
-    //        WinJS.log && WinJS.log("The purchase was not completed.", "sample", "status");
-    //}
 
     function submitPost() {
         var content = document.getElementById("postContent").textContent;
-
         var postData = {
             'content ': content,
             'scope ': 'private'
@@ -186,5 +180,29 @@
 
     }
   
+
+    
+
+    function doHideItems() {
+        //document.getElementById('postPopup').winControl.hideCommands([cmdAdd, cmdRemove, appBarSeparator, cmdDelete]);
+       // document.getElementById('scenarioHideButtons').disabled = true;
+       
+    }
+
+    // These functions are used by the scenario to disable and enable the scenario buttons when the AppBar shows and hides
+    function scenarioBarShown() {
+        //document.getElementById('scenarioShowBar').disabled = true;
+        //if (document.getElementById('cmdAdd').style.visibility === "hidden") {
+            
+        //} else {
+            //document.getElementById('scenarioHideButtons').disabled = false;
+        //}
+    }
+
+    function scenarioBarHidden() {
+        //document.getElementById('scenarioShowBar').disabled = false;
+       
+        //document.getElementById('scenarioHideButtons').disabled = true;
+    }
 
 })();

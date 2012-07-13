@@ -95,7 +95,7 @@
         //scrollPosition+1366(这是win-viewport)-120(这是margin-left)=win-surface=postNum / 4 * 537 + 5
         var _scrollPos = listView.scrollPosition;
 
-        WinJS.log && WinJS.log(_scrollPos + "--" + scrollPosition, "sample", "status");
+        //WinJS.log && WinJS.log(_scrollPos + "--" + scrollPosition, "sample", "status");
 
         //判断scrollPositon和listView的实际长度，如果滚动到了底部，才去试图加载新的内容
         if (_scrollPos + 1366 - 120 === scrollPosition) {

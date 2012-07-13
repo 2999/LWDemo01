@@ -3,31 +3,50 @@
 .groupeditemspage {
     overflow-x:auto;
 }
-    .groupeditemspage header[role=banner] #my-avatar {
+    .groupeditemspage header[role=banner] #my-tools {
         position:absolute;
         right:30px;
-        top:50px;        
+        top:50px;
+        overflow:hidden;
+        display:-ms-grid;
+        -ms-grid-rows:40px;
+        -ms-grid-columns:70px 140px;
     }
-        .groupeditemspage header[role=banner] #my-avatar #buyButton {
-            border:none;
-            font-size:16pt;
+
+        .groupeditemspage header[role=banner] #my-tools #confirmButton {
+            width:60px; 
+            height:40px;
+            -ms-grid-column:1;
+            -ms-grid-column-align:center;
+            -ms-grid-row-align:center;
         }
 
-    .groupeditemspage #postPopup {
-        position:absolute;
-        width:100%;        
-        top:30%;
-        left:40%;
+            .groupeditemspage header[role=banner] #my-tools #confirmButton:hover {
+                background-color:rgba(255, 255, 255, 0.13);
+            }
+        
+        .groupeditemspage header[role=banner] #my-tools #myAvatar {
+            border:none;
+            font-size:16pt;
+            -ms-grid-column:2;
+            -ms-grid-column-align:center;
+            -ms-grid-row-align:center;
+        }
+
+    .groupeditemspage #postPopup {        
+        width:100%; 
         display: -ms-grid;
         -ms-grid-rows:200px 50px;
-        -ms-grid-columns:300px 100px;
+        -ms-grid-columns:1fr 1fr;
+        background-color:#03ad6c;
     }
 
          .groupeditemspage #postPopup #postContent {
             -ms-grid-column-span:2;
-            margin:25px 50px;
-            width:330px;
-            height:150px;
+            -ms-grid-row-align:center;
+            margin:25px auto;
+            width:500px;
+            height:100px;
         }
         
         .groupeditemspage #postPopup #submitPost {

@@ -122,8 +122,8 @@
                 document.querySelector(".titlearea .pagesubtitle").innerHTML = "";
             } else {
                 listView.layout = new ui.GridLayout();
-                document.querySelector(".titlearea .pagetitle").innerHTML = "Search";
-                document.querySelector(".titlearea .pagesubtitle").innerHTML = "Results for " + modernQuotationMark + toStaticHTML(this.lastSearch) + modernQuotationMark;
+                document.querySelector(".titlearea .pagetitle").innerHTML = "扎堆";
+                document.querySelector(".titlearea .pagesubtitle").innerHTML = "";//"Results for " + modernQuotationMark + toStaticHTML(this.lastSearch) + modernQuotationMark
             }
         },
 

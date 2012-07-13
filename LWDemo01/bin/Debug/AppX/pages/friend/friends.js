@@ -11,7 +11,8 @@
     var groupedFriend;//这是绑定到zoomedInListView上的数据源
     var _groupedFriend = new WinJS.Binding.List();//这是新取得的好友列表，"组化"后要添加到groupedFriend中
     var _friendNum = 100;
-    var _lockFriends = [];
+    var _lockFriends = [];//作为一个“锁数组”，用来判断是否应该添加新的数据源。
+    //不知道为什么，loadingstatechangedHandle()中的getFriends(handle)会莫名其妙地执行三次
 
 
     ui.Pages.define(searchPageURI, {
@@ -34,7 +35,7 @@
                 document.querySelector(".titlearea .pagesubtitle").innerHTML = "";
             } else {
                 listView.layout = new ui.GridLayout();
-                document.querySelector(".titlearea .pagetitle").innerHTML = "Search";
+                document.querySelector(".titlearea .pagetitle").innerHTML = "好友";
                 //document.querySelector(".titlearea .pagesubtitle").innerHTML = "Results for " + modernQuotationMark + toStaticHTML(this.lastSearch) + modernQuotationMark;
             }
         },
@@ -96,7 +97,7 @@
         //var _scrollPos = listView.scrollPosition;
         var _indexOfLastVisible = listView.indexOfLastVisible;
 
-        WinJS.log && WinJS.log(_indexOfLastVisible, "sample", "status");
+        //WinJS.log && WinJS.log(_indexOfLastVisible, "sample", "status");
 
         //如果滚动到了底部，才去试图加载新的内容
         if (_indexOfLastVisible === _friendNum - 1) {

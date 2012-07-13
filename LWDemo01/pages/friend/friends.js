@@ -35,7 +35,7 @@
                 document.querySelector(".titlearea .pagesubtitle").innerHTML = "";
             } else {
                 listView.layout = new ui.GridLayout();
-                document.querySelector(".titlearea .pagetitle").innerHTML = "Search";
+                document.querySelector(".titlearea .pagetitle").innerHTML = "好友";
                 //document.querySelector(".titlearea .pagesubtitle").innerHTML = "Results for " + modernQuotationMark + toStaticHTML(this.lastSearch) + modernQuotationMark;
             }
         },
@@ -97,7 +97,7 @@
         //var _scrollPos = listView.scrollPosition;
         var _indexOfLastVisible = listView.indexOfLastVisible;
 
-        WinJS.log && WinJS.log(_indexOfLastVisible, "sample", "status");
+        //WinJS.log && WinJS.log(_indexOfLastVisible, "sample", "status");
 
         //如果滚动到了底部，才去试图加载新的内容
         if (_indexOfLastVisible === _friendNum - 1) {

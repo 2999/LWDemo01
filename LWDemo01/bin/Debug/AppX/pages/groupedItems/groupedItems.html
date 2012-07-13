@@ -47,20 +47,27 @@
                 <span class="pagetitle">Laiwang</span>
                 <span id="statusMessage"></span>
             </h1>
-            <div id="my-avatar">
-                <!--<img src="#" data-win-bind="src:myAvatarSrc" />-->
-                <button class="action" id="buyButton">这里是头像</button>
+            <div id="my-tools">
+                <!--<img src="#" data-win-bind="src:myAvatarSrc" />-->                
+                <img src="../../images/addpost.png"  id="confirmButton" />
+                <button class="action" id="myAvatar">这里是头像</button>
             </div>
         </header>
-        <div id="confirmFlyout" data-win-control="WinJS.UI.Flyout" aria-label="{Confirm purchase flyout}">
-            <button id="otherfunc" style="margin-bottom:20px;">其他功能</button>
-            <br />
-            <button id="confirmButton">分享这一刻</button>
+        <div id="confirmFlyout" data-win-control="WinJS.UI.Flyout" aria-label="{Confirm purchase flyout}">            
+            <!--<button id="scenarioHideButtons" class="action">Hide Commands</button>
+            <br />-->
+            <button id="otherTools">分享这一刻</button>
         </div>
-        <div id="postPopup" data-win-control="WinJS.UI.Flyout" aria-label="{Confirm purchase flyout}">
+        <!--<div id="postPopup" data-win-control="WinJS.UI.Flyout" aria-label="{Confirm purchase flyout}">
             <textarea id="postContent" placeholder="分享这一刻……"></textarea>
             <button id="submitPost">分享</button>
             <button id="canalePost">取消</button>
+        </div>-->
+        <div id="postPopup" data-win-control="WinJS.UI.AppBar" aria-label="Navigation Bar"
+        data-win-options="{layout:'custom',placement:'top'}">
+            <textarea id="postContent" placeholder="分享这一刻……"></textarea>
+                <button id="submitPost">分享</button>
+                <button id="canalePost">取消</button>
         </div>
 
         <section aria-label="Main content" role="main">
@@ -88,6 +95,6 @@
                 }"></div>
         </section>
         
-    </div>
+    </div>    
 </body>
 </html>
