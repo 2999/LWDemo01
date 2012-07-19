@@ -80,6 +80,16 @@
         padding: 7px;
     }
 
+
+.groupdetailpage progress {
+    color: white;
+    font-size: 25pt;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+}
+    
+
 @media screen and (-ms-view-state: snapped) {
 
     .groupdetailpage .itemslist .win-vertical.win-viewport .win-surface {

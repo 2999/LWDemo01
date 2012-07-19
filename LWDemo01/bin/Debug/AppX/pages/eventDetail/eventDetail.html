@@ -18,7 +18,11 @@
     <div class="headerTemplate" data-win-control="WinJS.Binding.Template">
         <!--<h2 class="event-subtitle" data-win-bind="textContent: eventName"></h2>-->
         <h4 class="event-creator-time" data-win-bind="textContent: eventCreatorTime"></h4>
-        <h4 class="event-memberNum" data-win-bind="textContent: eventMemberNum"></h4>        
+        <h4 class="event-memberNum" data-win-bind="textContent: eventMemberNum"></h4>
+        <button id="seeAllMember" class="seeAllMember" onclick="togglePanelUI();">查看成员</button>
+        <textarea id="event-post"></textarea>
+        <button id="do-event-post" onclick="submitPost();">发送</button>
+        <button id="cancle-event-post">取消</button>
     </div>
 
     <div class="itemtemplate" data-win-control="WinJS.Binding.Template">
@@ -39,7 +43,7 @@
             </h1>
         </header>
         <section aria-label="Main content" role="main">
-            <button id="seeAllMember" class="seeAllMember">ShowAllMember</button>
+            <!--<button id="seeAllMember" class="seeAllMember">ShowAllMember</button>-->
             <div class="itemslist" aria-label="List of this group's items" data-win-control="WinJS.UI.ListView" data-win-options="{ selectionMode: 'none' }"></div>
         </section>
     </div>

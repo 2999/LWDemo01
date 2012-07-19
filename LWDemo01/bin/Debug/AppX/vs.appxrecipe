@@ -5,7 +5,7 @@
     <WindowsUser>Jiangzhizi</WindowsUser>
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
-    <RegisteredManifestChecksum>52F6DF25D54B71282ED9A2C9F6CC9608A7A8154A8E8956AE78AF1BA2B8E2B9A9</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>E94D07FCC744599EB4806D913FE782EA7FD4202CD99903B45F4BC8E760F77312</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>a8efb040-e782-42ec-825a-b1e2dd04dcfe_1.0.0.0_neutral__6c99qte6jg5zw</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>a8efb040-e782-42ec-825a-b1e2dd04dcfe_6c99qte6jg5zw!App</RegisteredUserModeAppID>
     <RegisteredPackageID>a8efb040-e782-42ec-825a-b1e2dd04dcfe</RegisteredPackageID>
@@ -16,7 +16,7 @@
     <AppXManifest Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-07-13T10:48:58.060</Modified>
+      <Modified>2012-07-18T10:14:47.666</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -26,7 +26,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\eventDetail\eventDetail.css">
       <PackagePath>pages\eventDetail\eventDetail.css</PackagePath>
-      <Modified>2012-07-09T12:19:48.359</Modified>
+      <Modified>2012-07-19T15:33:19.122</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\events\events.css">
       <PackagePath>pages\events\events.css</PackagePath>
@@ -42,11 +42,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\groupDetail\groupDetail.css">
       <PackagePath>pages\groupDetail\groupDetail.css</PackagePath>
-      <Modified>2012-06-12T18:53:14.594</Modified>
+      <Modified>2012-07-19T10:17:06.106</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\groupedItems\groupedItems.css">
       <PackagePath>pages\groupedItems\groupedItems.css</PackagePath>
-      <Modified>2012-07-13T10:57:45.567</Modified>
+      <Modified>2012-07-13T14:31:41.073</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\login\login.css">
       <PackagePath>pages\login\login.css</PackagePath>
@@ -55,6 +55,10 @@
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\profile\profile.css">
       <PackagePath>pages\profile\profile.css</PackagePath>
       <Modified>2012-06-21T18:22:25.553</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\images\addevent.png">
+      <PackagePath>images\addevent.png</PackagePath>
+      <Modified>2012-07-13T11:04:46.795</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\images\addpost.png">
       <PackagePath>images\addpost.png</PackagePath>
@@ -114,7 +118,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\eventDetail\eventDetail.js">
       <PackagePath>pages\eventDetail\eventDetail.js</PackagePath>
-      <Modified>2012-07-09T13:02:36.469</Modified>
+      <Modified>2012-07-19T16:26:50.883</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\events\events.js">
       <PackagePath>pages\events\events.js</PackagePath>
@@ -130,11 +134,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\groupDetail\groupDetail.js">
       <PackagePath>pages\groupDetail\groupDetail.js</PackagePath>
-      <Modified>2012-07-12T15:29:16.635</Modified>
+      <Modified>2012-07-19T14:38:42.069</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\groupedItems\groupedItems.js">
       <PackagePath>pages\groupedItems\groupedItems.js</PackagePath>
-      <Modified>2012-07-13T10:36:39.502</Modified>
+      <Modified>2012-07-18T11:44:23.652</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\login\login.js">
       <PackagePath>pages\login\login.js</PackagePath>
@@ -146,7 +150,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\eventDetail\eventDetail.html">
       <PackagePath>pages\eventDetail\eventDetail.html</PackagePath>
-      <Modified>2012-07-09T12:07:49.078</Modified>
+      <Modified>2012-07-19T15:58:28.706</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\events\events.html">
       <PackagePath>pages\events\events.html</PackagePath>
@@ -162,11 +166,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\groupDetail\groupDetail.html">
       <PackagePath>pages\groupDetail\groupDetail.html</PackagePath>
-      <Modified>2012-06-29T13:53:10.222</Modified>
+      <Modified>2012-07-19T10:06:43.642</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\groupedItems\groupedItems.html">
       <PackagePath>pages\groupedItems\groupedItems.html</PackagePath>
-      <Modified>2012-07-13T10:48:37.713</Modified>
+      <Modified>2012-07-18T11:34:57.147</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\default.html">
       <PackagePath>default.html</PackagePath>
@@ -174,7 +178,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\login\login.html">
       <PackagePath>pages\login\login.html</PackagePath>
-      <Modified>2012-06-29T14:09:35.978</Modified>
+      <Modified>2012-07-18T11:33:18.556</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\pages\profile\profile.html">
       <PackagePath>pages\profile\profile.html</PackagePath>
@@ -182,7 +186,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jiangzhizi\Documents\Visual Studio 2012\Projects\LWDemo01\LWDemo01\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2012-07-13T10:48:56.389</Modified>
+      <Modified>2012-07-13T11:23:54.623</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

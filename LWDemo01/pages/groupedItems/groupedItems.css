@@ -10,7 +10,7 @@
         overflow:hidden;
         display:-ms-grid;
         -ms-grid-rows:40px;
-        -ms-grid-columns:70px 140px;
+        -ms-grid-columns:70px 60px 140px;
     }
 
         .groupeditemspage header[role=banner] #my-tools #confirmButton {
@@ -24,11 +24,22 @@
             .groupeditemspage header[role=banner] #my-tools #confirmButton:hover {
                 background-color:rgba(255, 255, 255, 0.13);
             }
-        
+            
+        .groupeditemspage header[role=banner] #my-tools #addEvent {
+            width:38px; 
+            height:40px;
+            -ms-grid-column:2;
+            -ms-grid-column-align:center;
+            -ms-grid-row-align:center;
+        }
+
+            .groupeditemspage header[role=banner] #my-tools #addEvent:hover {
+                background-color:rgba(255, 255, 255, 0.13);
+            }
         .groupeditemspage header[role=banner] #my-tools #myAvatar {
             border:none;
             font-size:16pt;
-            -ms-grid-column:2;
+            -ms-grid-column:3;
             -ms-grid-column-align:center;
             -ms-grid-row-align:center;
         }
@@ -62,6 +73,82 @@
             -ms-grid-row:2;
             -ms-grid-column:2;
             -ms-grid-column-align:start;
+            width:50px;
+            height:25px;
+        }
+
+
+    .groupeditemspage #addEventPopup {
+        width:100%; 
+        display: -ms-grid;
+        -ms-grid-rows:60px 60px 60px 60px 50px;
+        -ms-grid-columns:1fr 1fr 1fr 1fr;
+        background-color:#03ad6c;
+    }
+
+        .groupeditemspage #addEventPopup h3 {
+            -ms-grid-column:2;
+            -ms-grid-row-align:center;
+            -ms-grid-column-span:2;
+            line-height:60px;
+            font-size:14pt;
+        }
+        
+        .groupeditemspage #addEventPopup #event-title {
+            -ms-grid-row:2;
+            -ms-grid-column:2;
+            -ms-grid-column-span:2;
+            -ms-grid-row-align:center;
+            width:600px;
+        }
+
+        .groupeditemspage #addEventPopup .is-private-wrapper {
+            -ms-grid-row:3;
+            -ms-grid-column:2;
+            -ms-grid-column-span:2;
+            -ms-grid-row-align:center;
+        }
+        
+            .groupeditemspage #addEventPopup .is-private-wrapper .event-private {
+                margin-left:20px;
+            }
+
+        .groupeditemspage #addEventPopup .choice-friends-wrapper {
+            -ms-grid-row:4;
+            -ms-grid-column:2;
+            -ms-grid-column-span:3;
+            -ms-grid-row-align:center;
+        }
+        
+            .groupeditemspage #addEventPopup .choice-friends-wrapper .event-choice-friends {                
+                width:50px;
+                height:25px;
+                vertical-align:middle;
+            }
+        
+            .groupeditemspage #addEventPopup .choice-friends-wrapper #choiced-friends {                
+                margin-left:40px;
+                display:inline-block;
+            }
+
+                .groupeditemspage #addEventPopup .choice-friends-wrapper #choiced-friends img {
+                    vertical-align:middle;
+                    margin-right:10px;
+                }
+        
+        .groupeditemspage #addEventPopup #submitEvent {
+            -ms-grid-row:5;
+            -ms-grid-column:3;
+            -ms-grid-column-align:end;
+            width:50px;
+            height:25px;
+            margin-right:120px;
+        }
+        
+        .groupeditemspage #addEventPopup #canaleEvent {
+            -ms-grid-row:5;
+            -ms-grid-column:3;
+            -ms-grid-column-align:end;
             width:50px;
             height:25px;
         }

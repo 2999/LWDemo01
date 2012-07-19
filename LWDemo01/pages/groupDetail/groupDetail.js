@@ -103,6 +103,10 @@
             //var _itemsLastCreatedAt = _items.getAt(_items.length - 1) && _items.getAt(_items.length - 1).createdAt;
             if (_cursor !== (_items.getAt(_items.length - 1) && _items.getAt(_items.length - 1).createdAt)) {
 
+                //显示进度条
+                var progessBar = document.getElementById("progessBar");
+                progessBar.style.display = "block";
+
                 _cursor = _items.getAt(_items.length - 1).createdAt;
 
                 //把数据添加到listview中让显示出来
@@ -111,6 +115,7 @@
                         _items.push(item);
                     });
                     listView.loadMorePages();
+                    progessBar.style.display = "none";
                 }
                 getStream(handle);
             }                    
@@ -130,7 +135,7 @@
         //listView.itemDataSource = pageList.dataSource;
         listView.itemDataSource = _items.dataSource;
         listView.itemTemplate = element.querySelector(".itemtemplate");
-        listView.oniteminvoked = this.itemInvoked.bind(this);
+        listView.oniteminvoked = this.itemInvoked.bind(this,_items);
         //var _items = this.items;
         listView.addEventListener("loadingstatechanged", function () {
             loadingstatechangedHandle(listView, _items);
@@ -157,8 +162,8 @@
             }
         },
 
-        itemInvoked: function (args) {
-            var item = this.items.getAt(args.detail.itemIndex);
+        itemInvoked: function (_items, args) {
+            var item = this.items ? this.items.getAt(args.detail.itemIndex) : _items.getAt(args.detail.itemIndex);
             nav.navigate("/pages/itemDetail/itemDetail.html", { item: item });//Data.getItemReference(item)
         },
 
@@ -168,6 +173,9 @@
             var listView = element.querySelector(".itemslist").winControl;
             var group = (options && options.groupKey) ? Data.resolveGroupReference(options.groupKey) : Data.groups.getAt(0);
             scene = group.key;//全局变量，确定场景：是个人主墙，还是个人post墙
+            _cursor = "0";
+            postNum = 0;
+            scrollPosition = 0;
             var _this = this;
             var _items = this.items;
             //把数据添加到listview中让显示出来

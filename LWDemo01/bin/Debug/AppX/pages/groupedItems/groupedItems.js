@@ -77,12 +77,9 @@
             //绑定右上角的头像事件
             document.getElementById("myAvatar").addEventListener("click", showConfirmFlyout, false);
             document.getElementById("confirmButton").addEventListener("click", confirmOrder, false);
-            //document.getElementById("confirmFlyout").addEventListener("afterhide", onDismiss, false);
+            document.getElementById("addEvent").addEventListener("click", addEventOrder, false);
             
-            
-            //document.getElementById('scenarioHideButtons').addEventListener("click", doHideItems, false);
-            // Set the default state of scenario buttons
-            
+            // Set the default state of scenario buttons            
             //document.getElementById('scenarioHideButtons').disabled = true;
             // Set the default state of all the AppBar
             document.getElementById('postPopup').winControl.sticky = true;
@@ -140,7 +137,7 @@
 
     function confirmOrder() {
         //WinJS.log && WinJS.log("You have completed your purchase.", "sample", "status");
-        document.getElementById("confirmFlyout").winControl.hide();
+        //document.getElementById("confirmFlyout").winControl.hide();
         document.getElementById('postPopup').winControl.show();
         
         //var button = document.getElementById("confirmButton");                
@@ -148,8 +145,12 @@
 
         document.getElementById("submitPost").addEventListener("click", submitPost, false);
         document.getElementById("canalePost").addEventListener("click", canalePost, false);
-
-       
+    }
+    
+    function addEventOrder() {           
+        document.getElementById('addEventPopup').winControl.show();
+        document.getElementById("submitEvent").addEventListener("click", submitEvent, false);
+        document.getElementById("canaleEvent").addEventListener("click", canaleEvent, false);
     }
 
 
@@ -168,25 +169,42 @@
                 //WinJS.log && WinJS.log("Hello , new post ! ", "sample", "status");
 
                 document.getElementById("postPopup").winControl.hide();
+
+                //发完post后应该在主墙上出现
+
             }
         })
     }
 
     function canalePost() {
-
         //WinJS.UI.Animation.showPopup(myPopupUI, null);
-
         document.getElementById("postPopup").winControl.hide();
-
     }
   
+    function submitEvent() {
+        var _title = document.getElementById("event-title").value;
+        var _type = document.getElementById("type-recorder").value;
+        var postData = {
+            'title': _title,
+            'type': _type
+        };
+        $.ajax({
+            global: false,
+            url: API_DOMAIN + '/event/add',
+            type: 'POST',
+            data: postData,
+            _success: function (data) {
+                //WinJS.log && WinJS.log("Hello , new post ! ", "sample", "status");
 
-    
+                document.getElementById("addEventPopup").winControl.hide();
+            }
+        })
 
-    function doHideItems() {
-        //document.getElementById('postPopup').winControl.hideCommands([cmdAdd, cmdRemove, appBarSeparator, cmdDelete]);
-       // document.getElementById('scenarioHideButtons').disabled = true;
-       
+    }
+
+    function canaleEvent() {
+        //WinJS.UI.Animation.showPopup(myPopupUI, null);
+        document.getElementById("addEventPopup").winControl.hide();
     }
 
     // These functions are used by the scenario to disable and enable the scenario buttons when the AppBar shows and hides
@@ -206,3 +224,12 @@
     }
 
 })();
+
+
+function switchEventPublic() {
+    document.getElementById("type-recorder").value = "public";
+}
+
+function switchEventPrivate() {
+    document.getElementById("type-recorder").value = "private";
+}

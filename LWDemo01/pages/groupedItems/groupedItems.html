@@ -50,13 +50,14 @@
             <div id="my-tools">
                 <!--<img src="#" data-win-bind="src:myAvatarSrc" />-->                
                 <img src="../../images/addpost.png"  id="confirmButton" />
+                <img src="../../images/addevent.png"  id="addEvent" />
                 <button class="action" id="myAvatar">这里是头像</button>
             </div>
         </header>
         <div id="confirmFlyout" data-win-control="WinJS.UI.Flyout" aria-label="{Confirm purchase flyout}">            
             <!--<button id="scenarioHideButtons" class="action">Hide Commands</button>
             <br />-->
-            <button id="otherTools">分享这一刻</button>
+            <button id="otherTools">其它功能</button>
         </div>
         <!--<div id="postPopup" data-win-control="WinJS.UI.Flyout" aria-label="{Confirm purchase flyout}">
             <textarea id="postContent" placeholder="分享这一刻……"></textarea>
@@ -68,6 +69,24 @@
             <textarea id="postContent" placeholder="分享这一刻……"></textarea>
                 <button id="submitPost">分享</button>
                 <button id="canalePost">取消</button>
+        </div>
+        <div id="addEventPopup" data-win-control="WinJS.UI.AppBar" aria-label="Navigation Bar"
+        data-win-options="{layout:'custom',placement:'top'}">
+            <h3> 发起一个扎堆：</h3>
+            <input type="text" placeholder="主题（必填）" id="event-title" />
+            <div class="is-private-wrapper">
+                <input type="radio" name="isPrivate" class="event-public" value="public" onclick="switchEventPublic();" />
+                <label class="event-public-label">公开</label>
+                <input type="radio" name="isPrivate" class="event-private" value="private" checked="checked"  onclick="switchEventPrivate();" />
+                <label class="event-private-label">私密</label>
+                <input type="hidden" id="type-recorder" value="private" />
+            </div>
+            <div class="choice-friends-wrapper">
+                <button class="event-choice-friends">选择好友</button>
+                <div id="choiced-friends"><img /><img /></div>
+            </div>
+            <button id="submitEvent">发起</button>
+            <button id="canaleEvent">取消</button>
         </div>
 
         <section aria-label="Main content" role="main">
